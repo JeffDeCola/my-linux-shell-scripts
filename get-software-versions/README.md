@@ -10,3 +10,7 @@ getting various linux software versions on your rig._
 ```bash
 bash get-software-versions.bash
 ```
+
+## EDIT AWAY
+
+Obviously, use this as a starting point for software you're interested in.
