@@ -410,7 +410,7 @@ software[$i]="python"
 thecommand="python -V"
 command[$i]=$thecommand
 # Only stdout, not stderr
-OUTPUT=$(($thecommand) 2>&1)
+OUTPUT=$( ($thecommand) 2>&1)
 version[$i]="$OUTPUT"
 i=$i+1
 printf "."

@@ -3,17 +3,16 @@
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-`my-linux-shell-scripts` _A place to keep useful tools I created in go.
+_A place to keep useful tools I created in go._
 
-The `my-linux-shell-scripts`
-[GitHub Webpage](https://jeffdecola.github.io/my-linux-shell-scripts/).
+[GitHub Webpage](https://jeffdecola.github.io/my-linux-shell-scripts/)
 
 ## USEFUL TOOLS I CREATED
 
 * [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/get-software-versions)
 
   _Get various linux software versions on your rig._
-  
+
 ## UPDATE GITHUB WEBPAGE USING CONCOURSE (OPTIONAL)
 
 For fun, I use concourse to update
