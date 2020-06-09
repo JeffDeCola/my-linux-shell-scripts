@@ -1,6 +1,5 @@
 # my-linux-shell-scripts
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/93d8b8e7255441453b75/maintainability)](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/maintainability)
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
@@ -11,13 +10,9 @@ The `my-linux-shell-scripts`
 
 ## USEFUL TOOLS I CREATED
 
-* [decryptfile](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/decryptfile)
+* [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/get-software-versions)
 
-  _Decrypt a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
-  Works with
-  [encryptfile](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/encryptfile)._
-
-dddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddd
+  _Get various linux software versions on your rig._
   
 ## UPDATE GITHUB WEBPAGE USING CONCOURSE (OPTIONAL)
 
