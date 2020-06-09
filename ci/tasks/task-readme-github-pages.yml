@@ -1,0 +1,19 @@
+# my-go-tools task-readme-github-pages.yml
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+    tag: 1.7.1
+
+inputs:
+- name: my-go-tools
+
+outputs:
+- name: my-go-tools-updated
+
+run:
+  path: ./my-go-tools/ci/scripts/readme-github-pages.sh
+  # args: [-debug]
