@@ -3,7 +3,7 @@
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-_A place to keep useful tools I created in go._
+_A place to keep useful tools I created in linux shell scripts._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-linux-shell-scripts/)
 
