@@ -1,5 +1,5 @@
 #!/bin/bash
-# my-global-repo-scripts-private get-softwareversions.bash
+# my-linux-shell-scripts get-software-versions.bash
 
 echo " "
 echo "Getting your software versions - Processing"
