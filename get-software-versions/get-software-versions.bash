@@ -321,6 +321,23 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
+# LATEX tlmgr 
+software[$i]="tlmgr"
+thecommand="tlmgr -version"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"revision"* ]]; then
+        version[$i]="  $line"
+        break
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
 # LATEX dvisvgm
 software[$i]="dvisvgm"
 thecommand="dvisvgm --version"
@@ -331,16 +348,16 @@ version[$i]="  $OUTPUT"
 i=$i+1
 printf "."
 
-# LATEX pdflatex 
-software[$i]="pdflatex"
-thecommand="pdflatex -version"
+# LATEX ghostscript
+software[$i]="ghostscript"
+thecommand="ghostscript -v"
 command[$i]=$thecommand
 # Only stdout, not stderr
 OUTPUT="$($thecommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
 while IFS= read -r line
 do
-    if [[ $line == *"pdfTeX"* ]]; then
+    if [[ $line == *"GPL"* ]]; then
         version[$i]="  $line"
         break
     fi  
