@@ -1,4 +1,4 @@
-# my-go-tools task-readme-github-pages.yml
+# my-linux-shell-scripts task-readme-github-pages.yml
 
 platform: linux
 
@@ -9,11 +9,11 @@ image_resource:
     tag: 1.7.1
 
 inputs:
-- name: my-go-tools
+- name: my-linux-shell-scripts
 
 outputs:
-- name: my-go-tools-updated
+- name: my-linux-shell-scripts
 
 run:
-  path: ./my-go-tools/ci/scripts/readme-github-pages.sh
+  path: ./my-linux-shell-scripts/ci/scripts/readme-github-pages.sh
   # args: [-debug]
