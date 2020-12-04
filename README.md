@@ -5,6 +5,11 @@
 
 _A place to keep useful tools I created in linux shell scripts._
 
+Documentation and reference,
+
+* Linux
+  [common-commands-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/operating-systems/linux/common-commands-cheat-sheet)
+
 [GitHub Webpage](https://jeffdecola.github.io/my-linux-shell-scripts/)
 _built with
 [concourse ci](https://github.com/JeffDeCola/my-linux-shell-scripts/blob/master/ci-README.md)_
