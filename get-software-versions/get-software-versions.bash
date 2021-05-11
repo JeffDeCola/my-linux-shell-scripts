@@ -201,6 +201,23 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
+# GTKWAVE
+software[$i]="gtkwave"
+thecommand="gtkwave --version"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"GTKWave Analyzer"* ]]; then
+        version[$i]="$line"
+        break
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
 # IVERILOG
 software[$i]="iverilog"
 thecommand="iverilog -V"
