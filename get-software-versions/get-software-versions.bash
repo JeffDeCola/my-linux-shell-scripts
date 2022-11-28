@@ -42,6 +42,16 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
+# BASH
+software[$i]="bash"
+thecommand="echo $BASH_VERSION"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+version[$i]=$OUTPUT
+i=$i+1
+printf "."
+
 # GUEST ADDITIONS (VIRTUALBOX)
 software[$i]="guest-additions"
 thecommand="ls /opt | grep Guest"
@@ -75,16 +85,6 @@ do
         version[$i]="N/A"
     fi  
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
-printf "."
-
-# BASH
-software[$i]="bash"
-thecommand="echo $BASH_VERSION"
-command[$i]=$thecommand
-# Only stdout, not stderr
-OUTPUT="$($thecommand 2> /dev/null)"
-version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
