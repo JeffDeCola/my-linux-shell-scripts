@@ -7,6 +7,7 @@ echo "Getting your software versions - Processing"
 declare -a software
 declare -a command
 declare -a version
+declare -a indent
 i=1
 
 # UBUNTU
@@ -115,8 +116,17 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
+# DOKER
+software[$i]="DOCKER"
+thecommand="NOTHING"
+command[$i]=$thecommand
+version[$i]="DOCKER"
+i=$i+1
+printf "."
+
 # DOCKER
-software[$i]="docker"
+indent[$i]="  "
+software[$i]="client"
 thecommand="docker version"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -130,8 +140,18 @@ do
         # Remove leading white space
         NO_LEAD_SPACE="$(echo -e "${line}" | sed -e 's/^[[:space:]]*//')"
         version[$i]=$NO_LEAD_SPACE
-        break
-    fi  
+        # Break out if already found both versions (server and client)
+        if [[ $foundFirstVersion == "1" ]]; then
+          break
+        fi
+        # NOW LOOK FOR SERVER VERSION
+        foundFirstVersion="1"
+        i=$i+1
+        indent[$i]="  "
+        software[$i]="server"
+        command[$i]=$thecommand
+        printf "."
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -235,8 +255,17 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
+# JEFFS my-go-tools
+software[$i]="JEFFS"
+thecommand="NOTHING"
+command[$i]=$thecommand
+version[$i]="JEFFS"
+i=$i+1
+printf "."
+
 # JEFFS my-go-tools (decryptfile)
-software[$i]="jeffs(decryptfile)"
+indent[$i]="  "
+software[$i]="decryptfile"
 thecommand="decryptfile -v"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -246,7 +275,8 @@ i=$i+1
 printf "."
 
 # JEFFS my-go-tools (encryptfile)
-software[$i]="jeffs(encryptfile)"
+indent[$i]="  "
+software[$i]="encryptfile"
 thecommand="encryptfile -v"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -255,8 +285,42 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
+# JEFFS my-go-tools (md5-hash-file)
+indent[$i]="  "
+software[$i]="md5-hash-file"
+thecommand="md5-hash-file -v"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+version[$i]=$OUTPUT
+i=$i+1
+printf "."
+
+# JEFFS my-go-tools (md5-hash-file)
+indent[$i]="  "
+software[$i]="sha256-hash-file"
+thecommand="sha256-hash-file -v"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+version[$i]=$OUTPUT
+i=$i+1
+printf "."
+
+# JEFFS my-go-tools (markdown-check-links)
+indent[$i]="  "
+software[$i]="markdown-check-links"
+thecommand="markdown-check-links -v"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+version[$i]=$OUTPUT
+i=$i+1
+printf "."
+
 # JEFFS my-go-tools (markdown-create-table-of-contents)
-software[$i]="jeffs(markdown-create-table-of-contents)"
+indent[$i]="  "
+software[$i]="markdown-create-table..."
 thecommand="markdown-create-table-of-contents -v"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -266,7 +330,8 @@ i=$i+1
 printf "."
 
 # JEFFS my-go-tools (markdown-delimiter-doer)
-software[$i]="jeffs(markdown-delimiter-doer)"
+indent[$i]="  "
+software[$i]="markdown-delimiter-doer"
 thecommand="markdown-delimiter-doer -v"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -275,18 +340,17 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
-# JEFFS my-go-tools (md5-hash-file)
-software[$i]="jeffs(md5-hash-file)"
-thecommand="md5-hash-file -v"
+# KEYBASE
+software[$i]="KEYBASE"
+thecommand="NOTHING"
 command[$i]=$thecommand
-# Only stdout, not stderr
-OUTPUT="$($thecommand 2> /dev/null)"
-version[$i]=$OUTPUT
+version[$i]="KEYBASE"
 i=$i+1
 printf "."
 
 # KEYBASE (CLIENT)
-software[$i]="keybase(Client)"
+indent[$i]="  "
+software[$i]="client(ERASE)"
 thecommand="keybase version"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -303,7 +367,8 @@ i=$i+1
 printf "."
 
 # KEYBASE (SERVICE)
-software[$i]="keybase(Service)"
+indent[$i]="  "
+software[$i]="service(ERASE)"
 thecommand="keybase version"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -460,13 +525,22 @@ printf "."
 software[$i]="python"
 thecommand="python -V"
 command[$i]=$thecommand
+command[$i]=$thecommand
 # Only stdout, not stderr
-OUTPUT=$( ($thecommand) 2>&1)
-version[$i]="$OUTPUT"
+OUTPUT="$($thecommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"Python "* ]]; then
+        version[$i]="$line"
+        break
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
-# PYTHON pip 
+# PYTHON pip
+indent[$i]="  "
 software[$i]="pip"
 thecommand="pip -V"
 command[$i]=$thecommand
@@ -476,7 +550,7 @@ OUTPUT="$($thecommand 2> /dev/null)"
 while IFS= read -r line
 do
     if [[ $line == *"pip "* ]]; then
-        version[$i]="  $line"
+        version[$i]="$line"
         break
     fi  
 done < <(printf '%s\n' "$OUTPUT")
@@ -494,12 +568,13 @@ i=$i+1
 printf "."
 
 # PYTHON3 pip3
+indent[$i]="  "
 software[$i]="pip3"
 thecommand="pip3 -V"
 command[$i]=$thecommand
 # Only stdout, not stderr
 OUTPUT="$($thecommand 2> /dev/null)"
-version[$i]="  $OUTPUT"
+version[$i]="$OUTPUT"
 i=$i+1
 printf "."
 
@@ -571,25 +646,24 @@ do
     sw=${software[$index]}
     cmd=${command[$index]}
     ver=${version[$index]}
+    ind=${indent[$index]}
 
     # jeff print format
     if [[ $sw == *"jeffprintformat"* ]]; then
         if [[ $cmd == *"addspace"* ]]; then
             echo ""
-        elif [[ $cmd == *"printthis"* ]]; then
-            echo "$ver"
         fi
-    # Blank or white space
-    elif [[ -z "${ver// }" ]]; then
-        tput setaf 7; printf "   %-18s" $sw;
-        tput setaf 1; echo "Software Not Installed"
-    # Not applicable
-    elif [[ $ver == *"N/A"* ]]; then
-        tput setaf 7; printf "   %-18s" $sw;
+    # WHITE - SPECIAL CHARACTERS
+    elif [[ $ver == *"N/A"* ]] || [[ $ver == *"JEFFS"* ]] || [[ $ver == *"DOCKER"* ]] || [[ $ver == *"KEYBASE"* ]]; then
+        tput setaf 7; printf "$ind""   %-28s" $sw;
         tput setaf 7; echo "$ver"
-    # Normal Format    
+    # RED - Blank or white space - Software Not Installed
+    elif [[ -z "${ver// }" ]]; then
+        tput setaf 7; printf "$ind""   %-28s" $sw;
+        tput setaf 1; echo "Software Not Installed"
+    # GREEN - Normal Format
     else
-        tput setaf 7; printf "   %-18s" $sw;
+        tput setaf 7; printf "$ind""   %-28s" $sw;
         tput setaf 2; echo "$ver"
     fi     
 done
