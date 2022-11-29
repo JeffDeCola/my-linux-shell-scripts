@@ -126,7 +126,7 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
-# DOKER TITLE
+# DOCKER TITLE
 software[$i]="DOCKER"
 thecommand="docker version"
 command[$i]=$thecommand
@@ -138,6 +138,7 @@ OUTPUT="$($thecommand 2> /dev/null)"
 echo "hello"
 while IFS= read -r line
 do
+    echo "monkey"$line
     if [[ $line == *"not found"* ]]; then
         # No Docker found
         version[$i]=" "
