@@ -488,7 +488,9 @@ OUTPUT="$($thecommand 2> /dev/null)"
 while IFS= read -r line
 do
     if [[ $line == *"GPL"* ]]; then
-        version[$i]="  $line"
+        # Remove leading white space
+        NO_LEAD_SPACE="$(echo -e "${line}" | sed -e 's/^[[:space:]]*//')"
+        version[$i]=$NO_LEAD_SPACE
         break
     fi  
 done < <(printf '%s\n' "$OUTPUT")
