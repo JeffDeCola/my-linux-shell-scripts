@@ -52,6 +52,16 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
+# ZSH
+software[$i]="zsh"
+thecommand="zsh --version"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+version[$i]=$OUTPUT
+i=$i+1
+printf "."
+
 # GUEST ADDITIONS (VIRTUALBOX)
 software[$i]="guest-additions"
 thecommand="ls /opt | grep Guest"
