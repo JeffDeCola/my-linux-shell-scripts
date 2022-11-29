@@ -71,7 +71,7 @@ i=$i+1
 printf "."
 
 # ZSH
-software[$i]="zsh"
+software[$i]="Zsh"
 thecommand="zsh --version"
 command[$i]=$thecommand
 # Only stdout, not stderr
