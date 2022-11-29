@@ -459,7 +459,7 @@ OUTPUT="$($thecommand 2> /dev/null)"
 while IFS= read -r line
 do
     if [[ $line == *"revision"* ]]; then
-        version[$i]="  $line"
+        version[$i]="$line"
         break
     fi  
 done < <(printf '%s\n' "$OUTPUT")
@@ -473,7 +473,7 @@ thecommand="dvisvgm --version"
 command[$i]=$thecommand
 # Only stdout, not stderr
 OUTPUT="$($thecommand 2> /dev/null)"
-version[$i]="  $OUTPUT"
+version[$i]="$OUTPUT"
 i=$i+1
 printf "."
 
@@ -541,7 +541,7 @@ thecommand="psql -V"
 command[$i]=$thecommand
 # Only stdout, not stderr
 OUTPUT="$($thecommand 2> /dev/null)"
-version[$i]="  $OUTPUT"
+version[$i]="$OUTPUT"
 i=$i+1
 printf "."
 
