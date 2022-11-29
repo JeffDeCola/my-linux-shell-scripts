@@ -31,6 +31,24 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
+# GNOME SHELL
+software[$i]="GNOME-shell"
+thecommand="gnome-shell --version"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"GNOME"* ]]; then
+        version[$i]=$line
+    else
+        version[$i]="N/A"
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
 # KERNAL
 software[$i]="kernal"
 thecommand="uname -a"
@@ -72,24 +90,6 @@ OUTPUT="$($thecommand 2> /dev/null)"
 while IFS= read -r line
 do
     if [[ $line == *"GuestAdditions"* ]]; then
-        version[$i]=$line
-    else
-        version[$i]="N/A"
-    fi  
-done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
-printf "."
-
-# GNOME SHELL
-software[$i]="GNOME-shell"
-thecommand="gnome-shell --version"
-command[$i]=$thecommand
-# Only stdout, not stderr
-OUTPUT="$($thecommand 2> /dev/null)"
-# LOOK AT LINE BY LINE
-while IFS= read -r line
-do
-    if [[ $line == *"GNOME"* ]]; then
         version[$i]=$line
     else
         version[$i]="N/A"
