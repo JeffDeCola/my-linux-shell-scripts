@@ -623,7 +623,7 @@ OUTPUT="$($thecommand 2> /dev/null)"
 while IFS= read -r line
 do
     if [[ $line == *"pylint"* ]]; then
-        version[$i]="  $line"
+        version[$i]="$line"
         break
     fi  
 done < <(printf '%s\n' "$OUTPUT")
