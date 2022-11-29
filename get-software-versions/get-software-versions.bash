@@ -71,7 +71,7 @@ i=$i+1
 printf "."
 
 # ZSH
-software[$i]="Zsh"
+software[$i]="zsh"
 thecommand="zsh --version"
 command[$i]=$thecommand
 # Only stdout, not stderr
@@ -126,45 +126,63 @@ version[$i]=$OUTPUT
 i=$i+1
 printf "."
 
-# DOKER
+# DOKER TITLE
 software[$i]="DOCKER"
-thecommand="NOTHING"
-command[$i]=$thecommand
-version[$i]="DOCKER"
-i=$i+1
-printf "."
-
-# DOCKER
-indent[$i]="  "
-software[$i]="client"
 thecommand="docker version"
 command[$i]=$thecommand
+version[$i]="DOCKER"
+dockerNotFound="0"
 # Only stdout, not stderr
 OUTPUT="$($thecommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
 while IFS= read -r line
 do
-    if [[ $line == *"Version:"* ]]; then
-        # Remove Version:
-        line=${line//Version:/}
-        # Remove leading white space
-        NO_LEAD_SPACE="$(echo -e "${line}" | sed -e 's/^[[:space:]]*//')"
-        version[$i]=$NO_LEAD_SPACE
-        # Break out if already found both versions (server and client)
-        if [[ $foundFirstVersion == "1" ]]; then
-          break
-        fi
-        # NOW LOOK FOR SERVER VERSION
-        foundFirstVersion="1"
-        i=$i+1
-        indent[$i]="  "
-        software[$i]="server"
-        command[$i]=$thecommand
+    if [[ $line == *"not found"* ]]; then
+        # No Docker found
+        version[$i]=" "
+        dockerNotFound="1"
+        echo "happy"
         printf "."
     fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
+
+
+# DOCKER
+# SKIP IF NO DOCKER
+if [[ $dockerNotFound == "0" ]]; then
+    indent[$i]="  "
+    software[$i]="client"
+    thecommand="docker version"
+    command[$i]=$thecommand
+    # Only stdout, not stderr
+    OUTPUT="$($thecommand 2> /dev/null)"
+    # LOOK AT LINE BY LINE
+    while IFS= read -r line
+    do
+        if [[ $line == *"Version:"* ]]; then
+            # Remove Version:
+            line=${line//Version:/}
+            # Remove leading white space
+            NO_LEAD_SPACE="$(echo -e "${line}" | sed -e 's/^[[:space:]]*//')"
+            version[$i]=$NO_LEAD_SPACE
+            # Break out if already found both versions (server and client)
+            if [[ $foundFirstVersion == "1" ]]; then
+            break
+            fi
+            # NOW LOOK FOR SERVER VERSION
+            foundFirstVersion="1"
+            i=$i+1
+            indent[$i]="  "
+            software[$i]="server"
+            command[$i]=$thecommand
+            printf "."
+        fi
+    done < <(printf '%s\n' "$OUTPUT")
+    i=$i+1
+    printf "."
+fi
 
 # FLY
 software[$i]="fly"
@@ -265,7 +283,7 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
-# JEFFS my-go-tools
+# JEFFS my-go-tools TITLE
 software[$i]="JEFFS"
 thecommand="NOTHING"
 command[$i]=$thecommand
