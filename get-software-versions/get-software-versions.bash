@@ -448,7 +448,8 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
-# LATEX tlmgr 
+# LATEX tlmgr
+indent[$i]="  "
 software[$i]="tlmgr"
 thecommand="tlmgr -version"
 command[$i]=$thecommand
@@ -466,6 +467,7 @@ i=$i+1
 printf "."
 
 # LATEX dvisvgm
+indent[$i]="  "
 software[$i]="dvisvgm"
 thecommand="dvisvgm --version"
 command[$i]=$thecommand
@@ -476,6 +478,7 @@ i=$i+1
 printf "."
 
 # LATEX ghostscript
+indent[$i]="  "
 software[$i]="ghostscript"
 thecommand="ghostscript -v"
 command[$i]=$thecommand
