@@ -612,7 +612,8 @@ version[$i]="$OUTPUT"
 i=$i+1
 printf "."
 
-# PYTHON3 pylint 
+# PYTHON3 pylint
+indent[$i]="  "
 software[$i]="pylint"
 thecommand="pylint --version"
 command[$i]=$thecommand
