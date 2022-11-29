@@ -132,9 +132,9 @@ thecommand="docker version"
 command[$i]=$thecommand
 version[$i]="DOCKER"
 dockerNotFound="0"
-# Only stdout and stderr - DIFFERENT!!!!!!!
+# Rederict stderr to stdout so we can look at it
 # OUTPUT="$($thecommand 2> /dev/null)"
-OUTPUT="$($thecommand)"
+OUTPUT="$($thecommand 2>&1)"
 # LOOK AT LINE BY LINE
 echo "hello"
 while IFS= read -r line
