@@ -535,6 +535,7 @@ i=$i+1
 printf "."
 
 # POSTGRES psql
+indent[$i]="  "
 software[$i]="psql"
 thecommand="psql -V"
 command[$i]=$thecommand
