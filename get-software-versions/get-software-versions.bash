@@ -135,6 +135,7 @@ dockerNotFound="0"
 # Only stdout, not stderr
 OUTPUT="$($thecommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
+echo "hello"
 while IFS= read -r line
 do
     if [[ $line == *"not found"* ]]; then
@@ -152,6 +153,7 @@ printf "."
 # DOCKER
 # SKIP IF NO DOCKER
 if [[ $dockerNotFound == "0" ]]; then
+    echo "yo"
     indent[$i]="  "
     software[$i]="client"
     thecommand="docker version"
