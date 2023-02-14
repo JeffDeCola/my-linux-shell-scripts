@@ -14,7 +14,7 @@ Table of Contents
 Documentation and Reference
 
 * Linux
-  [common-commands-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/operating-systems/linux/common-commands-cheat-sheet)
+  [common commands cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/operating-systems/linux/common-commands-cheat-sheet)
 * This repos
   [github webpage](https://jeffdecola.github.io/my-linux-shell-scripts/)
   _built with
