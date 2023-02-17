@@ -17,13 +17,13 @@ echo "You are about to install go version $ver"
 # What OS do you have?
 echo ""
 echo "Which OS do you have?"
-echo "1) Linux"
-echo "2) Mac OS (x86-64)"
-echo "3) Mac OS (ARM64)"
-echo "4) Arch Linux"
-echo "5) Windows"
 echo " "
-echo "q Quit"
+echo "    1) Linux"
+echo "    2) Mac OS (x86-64)"
+echo "    3) Mac OS (ARM64)"
+echo "    4) Arch Linux"
+echo "    5) Windows"
+echo "    6) Quit/Exit"
 echo " "
 
 read -r -p "Enter your choice: " choice
@@ -56,6 +56,7 @@ if
     echo " "
     echo "Your updated go version is:"
     go version
+    echo " "
 
 elif 
     [ "$choice" -eq 2 ]; then
@@ -79,6 +80,7 @@ elif
     echo " "
     echo "Your updated go version is:"
     go version
+    echo " "
 
 elif 
     [ "$choice" -eq 3 ]; then
@@ -102,6 +104,7 @@ elif
     echo " "
     echo "Your updated go version is:"
     go version
+    echo " "
 
 elif 
     [ "$choice" -eq 4 ]; then
@@ -109,6 +112,12 @@ elif
     # Install
     echo "sudo pacman -S go"
     sudo pacman -S go
+
+    # Show version
+    echo " "
+    echo "Your updated go version is:"
+    go version
+    echo " "
 
 elif 
     [ "$choice" -eq 5 ]; then
@@ -125,8 +134,15 @@ elif
     # Install
     echo " "
     " .msi file downloaded. Double click in windows to install"
+    echo " "
+
+elif 
+    [ "$choice" -eq 6 ]; then
+    echo ""
+    exit
 
 else
     echo "Invalid choice"
+    echo ""
     exit
 fi
