@@ -14,3 +14,8 @@
 * [install-new-version-go](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/install-new-version-go)
 
   _Install the latest version of golang on linux, macOS, Windows, Raspberry Pi, etc._
+
+* [pacman-Syu.sh](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/pacman-Syu)
+
+  _Update your arch linux distribution._
+  
