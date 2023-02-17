@@ -9,6 +9,7 @@ linuxFileName='go'$ver'.linux-amd64.tar.gz'
 macOSx86_64FileName='go'$ver'.darwin-amd64.pkg'
 macOSARM64FileName='go'$ver'.darwin-arm64.pkg'
 windowsFileName='go'$ver'.windows-amd64.msi'
+raspbianFileName='go'$ver'.linux-arm64.tar.gz'
 
 # You are about to install go $ver
 echo " "
@@ -23,7 +24,8 @@ echo "    2) Mac OS (x86-64)"
 echo "    3) Mac OS (ARM64)"
 echo "    4) Arch Linux"
 echo "    5) Windows"
-echo "    6) Quit/Exit"
+echo "    6) Raspberry Pi OS (Raspbian) (ARM)"  
+echo "    7) Quit/Exit"
 echo " "
 
 read -r -p "Enter your choice: " choice
@@ -138,6 +140,36 @@ elif
 
 elif 
     [ "$choice" -eq 6 ]; then
+    FileName=$raspbianFileName
+    
+    echo "Going to Download $FileName, untar and move to /usr/local"
+
+    # cd /tmp
+    cd /tmp || exit
+
+    # wget
+    wget https://go.dev/dl/$FileName
+
+    # untar
+    tar -xf $FileName
+
+    # Remove current version go
+    sudo rm -rf /usr/local/go
+
+    # Move new version
+    sudo mv go /usr/local
+
+    # Remove downloaded file
+    rm $FileName
+
+    # Show version
+    echo " "
+    echo "Your updated go version is:"
+    go version
+    echo " "
+
+elif 
+    [ "$choice" -eq 7 ]; then
     echo ""
     exit
 
