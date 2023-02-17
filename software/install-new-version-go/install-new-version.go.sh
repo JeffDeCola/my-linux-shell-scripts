@@ -31,6 +31,9 @@ if
     
     echo "Going to Download $FileName, untar and move to /usr/local"
 
+    # cd /tmp
+    cd /tmp || exit
+
     # wget
     wget https://go.dev/dl/$FileName
 
@@ -57,6 +60,9 @@ elif
 
     echo "Going to Download $FileName"
 
+    # cd /tmp
+    cd /tmp || exit
+
     # wget
     wget https://go.dev/dl/$FileName
 
@@ -76,6 +82,9 @@ elif
     FileName=$macOSARM64FileName
 
     echo "Going to Download $FileName"
+
+    # cd /tmp
+    cd /tmp || exit
 
     # wget
     wget https://go.dev/dl/$FileName
@@ -97,6 +106,9 @@ elif
 
     echo "Going to Download $FileName"
 
+    # cd /tmp
+    cd /tmp || exit
+    
     # wget
     wget https://go.dev/dl/$FileName
 
