@@ -20,7 +20,10 @@ echo "Which OS do you have?"
 echo "1) Linux"
 echo "2) Mac OS (x86-64)"
 echo "3) Mac OS (ARM64)"
-echo "4) Windows"
+echo "4) Arch Linux"
+echo "5) Windows"
+echo " "
+echo "q Quit"
 echo " "
 
 read -r -p "Enter your choice: " choice
@@ -102,13 +105,20 @@ elif
 
 elif 
     [ "$choice" -eq 4 ]; then
+
+    # Install
+    echo "sudo pacman -S go"
+    sudo pacman -S go
+
+elif 
+    [ "$choice" -eq 5 ]; then
     FileName=$windowsFileName
 
     echo "Going to Download $FileName"
 
     # cd /tmp
     cd /tmp || exit
-    
+
     # wget
     wget https://go.dev/dl/$FileName
 
