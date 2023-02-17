@@ -1,4 +1,4 @@
-# my-linux-shell-scripts
+# MY LINUX SHELL SCRIPTS
 
 [![Tag Latest](https://badgen.net/github/tag/JeffDeCola/my-linux-shell-scripts)](https://github.com/JeffDeCola/my-linux-shell-scripts/tags)
 [![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/issues)
