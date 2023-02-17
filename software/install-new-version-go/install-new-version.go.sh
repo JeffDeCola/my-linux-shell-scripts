@@ -2,7 +2,7 @@
 # my-global-repo-scripts-private install-new-version-go.sh
 
 # Check https://go.dev/dl/ to see latest version
-ver='1.20'
+ver='1.20.1'
 
 # Set file names
 linuxFileName='go'$ver'.linux-amd64.tar.gz'
