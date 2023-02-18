@@ -10,7 +10,6 @@ macOSx86_64FileName='go'$ver'.darwin-amd64.pkg'
 macOSARM64FileName='go'$ver'.darwin-arm64.pkg'
 windowsFileName='go'$ver'.windows-amd64.msi'
 arm64FileName='go'$ver'.linux-arm64.tar.gz'
-arm32FileName='go'$ver'.linux-arm32.tar.gz'
 
 # You are about to install go $ver
 echo " "
@@ -26,7 +25,7 @@ echo "    3) Mac OS (ARM64)"
 echo "    4) Arch Linux"
 echo "    5) Windows"
 echo "    6) ARM 64-bit (RaspPi 4B, 3B, etc...)"  
-echo "    7) ARM 32-bit (RaspPi 1B, Hummingboard, etc...)"  
+echo "    7) ARM 32-bit (RaspPi 1B, Hummingboard, etc...) - INVALID"  
 echo "    8) Quit/Exit"
 echo " "
 
@@ -172,32 +171,8 @@ elif
 
 elif 
     [ "$choice" -eq 7 ]; then
-    FileName=$arm32FileName
     
-    echo "Going to Download $FileName, untar and move to /usr/local"
-
-    # cd /tmp
-    cd /tmp || exit
-
-    # wget
-    wget https://go.dev/dl/$FileName
-
-    # untar
-    tar -xf $FileName
-
-    # Remove current version go
-    sudo rm -rf /usr/local/go
-
-    # Move new version
-    sudo mv go /usr/local
-
-    # Remove downloaded file
-    rm $FileName
-
-    # Show version
-    echo " "
-    echo "Your updated go version is:"
-    go version
+    echo "Go does not support 32-bit"
     echo " "
 
 elif 
