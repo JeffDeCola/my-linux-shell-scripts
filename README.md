@@ -37,4 +37,3 @@ Documentation and Reference
 * [pacman-Syu.sh](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/pacman-Syu)
 
   _Update your arch linux distribution._
-  
