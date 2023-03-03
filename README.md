@@ -37,6 +37,10 @@ Documentation and Reference
 
   _Remove all docker containers and images._
 
+* [clean-vagrant](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/clean-vagrant)
+
+  _Remove all vagrant images (boxes)._
+
 * [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/get-software-versions)
 
   _Get various versions of software on your rig._

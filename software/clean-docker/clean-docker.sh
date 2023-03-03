@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 # clean-docker.sh
 
 echo " "

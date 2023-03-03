@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 # apt-get-update-upgrade.sh
 
 echo " "
