@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 # pacman-Syu.sh
 
 echo " "

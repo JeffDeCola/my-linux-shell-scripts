@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # my-global-repo-scripts-private install-new-version-go.sh
 
 # Check https://go.dev/dl/ to see latest version
