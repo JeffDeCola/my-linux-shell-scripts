@@ -8,14 +8,18 @@ echo " "
 
 set -e
 
+# WHAT THIS DOES
+echo "This will get rid of any docker images with the same IMAGE ID"
+echo " " 
+
 # PUT ALL IMAGES IN ARRAY
 docker_images=$(docker images --format "{{.ID}}|{{.Repository}}|{{.Tag}}")
 echo "Docker Images you have:"
 echo "$docker_images"
 echo " "
 
-# IMAGE NAME LOOKUP
-declare -A image_names
+# IMAGE IDS
+declare -A image_ids
 
 # READ docker_images LINE BY LINE
 while IFS= read -r line
@@ -27,20 +31,21 @@ do
     image_name=${array[1]}
     image_tag=${array[2]}
     
-    echo "WROKIGN ON: ${image_name}:${image_tag} (${image_id})"
+    # echo "LOOKING AT: ${image_name}:${image_tag} (${image_id})"
 
-    # DO WE HAVE THIS IMAGE NAME IN THE ARRAY?
-    if [[ -z "${image_names[$image_name]}" ]]; then
+    # DO WE HAVE THIS "IMAGE ID" IN THE ARRAY?
+    if [[ -z "${image_ids[$image_name]}" ]]; then
     
         # NOPE: KEEP IT
-        echo "KEEPING: ${image_name}:${image_tag}"
-        image_names[$image_name]=$image_id
+        echo "KEEPING: ${image_name}:${image_tag} (${image_id})"
+        # PUT $image_id IN image_ids ARRAY
+        image_ids[$image_name]=$image_id
     
-   else
+    else
     
-        # ALREADY GOT IT
-        echo "REMOVING: ${image_name}:${image_tag}"
-        # docker rmi "${image_name}:${image_tag}" ???????????????????????????????????
+        # ALREADY GOT IT - REMOVE IT
+        echo "REMOVING: ${image_name}:${image_tag} (${image_id})"
+        docker rmi "${image_name}:${image_tag}"
 
     fi
 
