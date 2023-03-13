@@ -31,19 +31,22 @@ do
     image_name=${array[1]}
     image_tag=${array[2]}
     
-    # echo "LOOKING AT: ${image_name}:${image_tag} (${image_id})"
+    echo "LOOKING AT: ${image_name}:${image_tag} (${image_id})"
 
+    if [[ "$image_tag" == "<none>" ]]; then
+
+        echo "REMOVING: ${image_name}:${image_tag} (${image_id})"
+        docker rmi "${image_name}:${image_tag}"
+      
     # DO WE HAVE THIS "IMAGE ID" IN THE ARRAY?
-    if [[ -z "${image_ids[$image_name]}" ]]; then
+    elif  [[ -z "${image_ids[$image_name]}" ]]; then
     
-        # NOPE: KEEP IT
         echo "KEEPING: ${image_name}:${image_tag} (${image_id})"
         # PUT $image_id IN image_ids ARRAY
         image_ids[$image_name]=$image_id
     
     else
     
-        # ALREADY GOT IT - REMOVE IT
         echo "REMOVING: ${image_name}:${image_tag} (${image_id})"
         docker rmi "${image_name}:${image_tag}"
 
