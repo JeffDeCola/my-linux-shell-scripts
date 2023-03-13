@@ -36,7 +36,7 @@ do
     if [[ "$image_tag" == "<none>" ]]; then
 
         echo "REMOVING: ${image_name}:${image_tag} (${image_id})"
-        docker rmi "${image_name}:${image_tag}"
+        docker rmi "${image_id}"
       
     # DO WE HAVE THIS "IMAGE ID" IN THE ARRAY?
     elif  [[ -z "${image_ids[$image_name]}" ]]; then
