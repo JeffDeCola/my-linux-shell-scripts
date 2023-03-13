@@ -39,7 +39,7 @@ Documentation and Reference
 
 * [docker-remove-old-images](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/docker-remove-old-images)
 
-  _Remove old docker images (Keeps latest versions)._
+  _Removes old docker images (Keeps one image based on IMAGE ID)._
 
 * [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/get-software-versions)
 
