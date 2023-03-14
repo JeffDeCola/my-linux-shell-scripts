@@ -1,0 +1,44 @@
+#!/bin/sh -e
+# concourse-connect-targets-to-teams.sh
+
+echo " "
+echo "************************************************************************"
+echo "************************ concourse-connect-targets-to-teams.sh (START) *"
+echo " "
+
+echo "THE TARGET IS ON YOUR MACHINE - WHIOCH YOU USE TO CONNECT TO TEAM ON CONCOURSE"
+echo "END RESULT" 
+echo "main-ci-target - connects to the main team on concourse"
+echo "jeffs-ci-target - connects to the jeffs-ci-team on concourse"
+echo " "
+
+echo " "
+echo "STEP 1 - SETUP TARGET main-ci-target TO CONNECT TO main TEAM ON CONCOURSE"
+fly --target main-ci-target login --team-name main --concourse-url http://192.168.20.112:8080/
+echo ""
+
+echo "STEP 2 - CREATE NEW TEAM jeffs-ci-team"
+echo "fly --target main-ci-target set-team --team-name jeffs-ci-team --local-user test"
+echo " "
+
+echo "STEP 3 - SETUP TARGET jeffs-ci-target TO CONNECT TO jeffs-ci-team TEAM ON CONCOURSE"
+echo "fly --target jeffs-ci-target login --team-name jeffs-ci-team --concourse-url http://192.168.20.112:8080/"
+echo ""
+
+echo " "
+echo "TO CHECK YOUR TARGETS ARE CONNECTED TO TEAMS"
+echo "fly targets"
+echo "cat ~/.flyrc"
+echo " "
+echo "TO SEE TEAMS"
+echo "fly --target main-ci-target teams"
+echo "fly --target jeffs-ci-target teams"
+echo " "
+echo "TO SEE USERS"
+echo "fly --target main-ci-target userinfo"
+echo "fly --target jeffs-ci-target userinfo"
+echo " "
+
+echo "**************************** concourse-connect-targets-to-teams.sh (END) *"
+echo "**************************************************************************"
+echo " "
