@@ -13,6 +13,10 @@
 
 ## SOFTWARE
 
+* [concourse-connect-targets-to-teams](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/concourse-connect-targets-to-teams)
+
+  _Connect local machine targets to concourse teams._
+
 * [docker-remove-all](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/docker-remove-all)
 
   _Remove all docker containers and images._
