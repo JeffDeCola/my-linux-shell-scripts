@@ -9,10 +9,10 @@ image_resource:
     tag: 1.20.1
 
 inputs:
-- name: my-linux-shell-scripts
+  - name: my-linux-shell-scripts
 
 outputs:
-- name: my-linux-shell-scripts-updated
+  - name: my-linux-shell-scripts-updated
 
 run:
   path: ./my-linux-shell-scripts/ci/scripts/readme-github-pages.sh
