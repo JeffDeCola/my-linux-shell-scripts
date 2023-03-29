@@ -10,7 +10,7 @@ I use concourse to automate,
 
 The concourse
 [pipeline.yml](https://github.com/JeffDeCola/my-linux-shell-scripts/blob/master/ci/pipeline.yml)
-shows the entire ci flow. Visually, it looks like,
+shows the entire ci flow,
 
 ![IMAGE - my-linux-shell-scripts concourse ci pipeline - IMAGE](docs/pics/my-linux-shell-scripts-pipeline.jpg)
 
