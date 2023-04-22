@@ -28,13 +28,10 @@ fi
 # STEP 2 -  GIT COMMIT ---------------------------------------------------
 tput setaf 4; echo "-- git commit -m \"$comment\""; tput sgr0
 git commit -m "$comment"
-echo ""
 
 # STEP 3 -  GIT PUSH -----------------------------------------------------
 tput setaf 4; echo "-- git push"; tput sgr0
 git push
-echo ""
-exit 1
 
 # STEP 4 -  GH PR CREATE -------------------------------------------------
 
