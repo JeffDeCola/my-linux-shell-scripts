@@ -34,6 +34,9 @@ tput setaf 4; echo "-- git push"; tput sgr0
 git push
 
 # STEP 4 -  GH PR CREATE -------------------------------------------------
-
+tput setaf 4; echo "-- gh pr create --fill"; tput sgr0
+gh pr create --fill
 
 # STEP 5 -  GH PR MERGE --------------------------------------------------
+tput setaf 4; echo "-- gh pr merge -m"; tput sgr0
+gh pr merge -m
