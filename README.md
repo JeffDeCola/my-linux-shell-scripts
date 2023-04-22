@@ -49,7 +49,7 @@ Documentation and Reference
 
   _Get various versions of software on your rig._
 
-* [git-merge-branch](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/get-software-versions)
+* [git-merge-branch](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/git-merge-branch)
 
   _Using git to add, commit and push to github.
   Then using gh to create a pull request and merge into the main branch._
