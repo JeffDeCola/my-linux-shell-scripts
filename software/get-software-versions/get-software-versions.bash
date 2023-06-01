@@ -229,6 +229,23 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
+# GH
+software[$i]="gh"
+thecommand="gh --version"
+command[$i]=$thecommand
+# Only stdout, not stderr
+OUTPUT="$($thecommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"version"* ]]; then
+        version[$i]="$line"
+        break
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
 # GIT
 software[$i]="git"
 thecommand="git version"
