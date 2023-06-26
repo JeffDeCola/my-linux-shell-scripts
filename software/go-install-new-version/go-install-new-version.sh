@@ -31,6 +31,8 @@ echo " "
 
 read -r -p "Enter your choice: " choice
 
+# LINUX ------------------------------------------------------------------------------------------
+
 if 
     [ "$choice" -eq 1 ]; then
     FileName=$linuxFileName
@@ -61,6 +63,8 @@ if
     go version
     echo " "
 
+# macOS (x86-64) ---------------------------------------------------------------------------------
+
 elif 
     [ "$choice" -eq 2 ]; then
     FileName=$macOSx86_64FileName
@@ -84,6 +88,8 @@ elif
     echo "Your updated go version is:"
     go version
     echo " "
+
+# macOS (ARM64) ----------------------------------------------------------------------------------
 
 elif 
     [ "$choice" -eq 3 ]; then
@@ -109,6 +115,8 @@ elif
     go version
     echo " "
 
+# ARCH LINUX -------------------------------------------------------------------------------------
+
 elif 
     [ "$choice" -eq 4 ]; then
 
@@ -121,6 +129,8 @@ elif
     echo "Your updated go version is:"
     go version
     echo " "
+
+# WINDOWS ----------------------------------------------------------------------------------------
 
 elif 
     [ "$choice" -eq 5 ]; then
@@ -138,6 +148,8 @@ elif
     echo " "
     " .msi file downloaded. Double click in windows to install"
     echo " "
+
+# ARM 64-bit -------------------------------------------------------------------------------------
 
 elif 
     [ "$choice" -eq 6 ]; then
@@ -168,6 +180,8 @@ elif
     echo "Your updated go version is:"
     go version
     echo " "
+
+# ARM 32-bit -------------------------------------------------------------------------------------
 
 elif 
     [ "$choice" -eq 7 ]; then
