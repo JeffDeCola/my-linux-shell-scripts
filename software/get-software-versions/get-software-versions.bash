@@ -3,7 +3,6 @@
 
 # USAGE:
 # bash get-software-versions.bash
-#
 
 # DECLARE ARRAYS AND INIT SOME VARIABLES --------------------------------------
 

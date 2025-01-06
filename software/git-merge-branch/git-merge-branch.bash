@@ -3,7 +3,6 @@
 
 # USAGE:
 # bash it-merge-branch.bash "commit comment"
-#
 
 # CHECK FOR AND ARGUMENT GIT COMMIT COMMENT -----------------------------------
 
