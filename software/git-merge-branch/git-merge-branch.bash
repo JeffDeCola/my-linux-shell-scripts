@@ -7,17 +7,15 @@
 # USAGE:
 # bash it-merge-branch.bash "commit comment"
 
-echo " "
-echo "************************************************************************"
-echo "**************************************** git-merge-branch.bash (START) *"
-echo " "
+#echo " "
+#echo "************************************************************************"
+#echo "**************************************** git-merge-branch.bash (START) *"
+#echo " "
 
 # CHECK FOR AND ARGUMENT GIT COMMIT COMMENT -----------------------------------
 
-# Make sure argument is passed
 if [[ ("$#" == 0) || ("$#" -gt 1) ]]
   then
-    # tput will make it red
     tput setaf 1; echo "***** ERROR - Must supply git commit comment in quotes"; tput sgr0
     exit 1
 fi
@@ -26,6 +24,7 @@ comment=$1
 # CHECK GIT IF YOU NEED TO DO ANYTHING ----------------------------------------
 
 git status 2>&1 | grep 'nothing to commit, working tree clean'
+# Captures the exit status of last command.
 if [ $? -ne 1 ]; then
     tput setaf 4; echo "***** ALL SET - Nothing to commit, working tree clean"; tput sgr0
     exit 1
@@ -59,7 +58,7 @@ gh pr create --fill
 tput setaf 4; echo "-- gh pr merge -m"; tput sgr0
 gh pr merge -m
 
-echo " "
-echo "****************************************** git-merge-branch.bash (END) *"
-echo "************************************************************************"
-echo " "
+#echo " "
+#echo "****************************************** git-merge-branch.bash (END) *"
+#echo "************************************************************************"
+#echo " "
