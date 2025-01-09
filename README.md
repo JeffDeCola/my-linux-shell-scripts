@@ -23,11 +23,11 @@ Documentation and Reference
 
 ## LINUX
 
-* [apt-get-update-upgrade.sh](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/apt-get-update-upgrade)
+* [apt-get-update-upgrade](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/apt-get-update-upgrade)
 
   _Update your linux distribution._
 
-* [pacman-Syu.sh](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/pacman-Syu)
+* [pacman-Syu](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/pacman-Syu)
 
   _Update your arch linux distribution._
 
@@ -47,7 +47,7 @@ Documentation and Reference
 
 * [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/get-software-versions)
 
-  _Get various versions of software on your rig._
+  _Get various versions of software on your machine._
 
 * [git-merge-branch](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/git-merge-branch)
 

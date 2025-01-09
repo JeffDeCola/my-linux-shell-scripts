@@ -1,8 +1,16 @@
 #!/bin/bash
-# my-linux-shell-scripts git-merge-branch.bash
+# git-merge-branch.bash
+
+# Using git to add, commit and push to github
+# Then using gh to create a pull request and merge into the main branch
 
 # USAGE:
 # bash it-merge-branch.bash "commit comment"
+
+echo " "
+echo "************************************************************************"
+echo "**************************************** git-merge-branch.bash (START) *"
+echo " "
 
 # CHECK FOR AND ARGUMENT GIT COMMIT COMMENT -----------------------------------
 
@@ -50,3 +58,8 @@ gh pr create --fill
 
 tput setaf 4; echo "-- gh pr merge -m"; tput sgr0
 gh pr merge -m
+
+echo " "
+echo "****************************************** git-merge-branch.bash (END) *"
+echo "************************************************************************"
+echo " "

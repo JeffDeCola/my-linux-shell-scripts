@@ -1,17 +1,20 @@
 #!/bin/sh -e
-# clean-vagrant.sh
+# vagrant-remove-images.sh
+
+# Remove all vagrant images (boxes)
 
 echo " "
 echo "************************************************************************"
-echo "********************************************* clean-vagrant.sh (START) *"
+echo "************************************* vagrant-remove-images.sh (START) *"
 echo " "
 
 echo "vagrant box prune"
-echo "This command removes old versions of installed boxes" 
+echo "This command removes old versions of installed boxes"
 echo "------------------------------------------------------------------------"
 echo " "
 vagrant box prune
 
-echo "************************************************* clean-vagrant.sh (END) *"
+echo " "
+echo "***************************************** vagrant-remove-images.sh (END) *"
 echo "**************************************************************************"
 echo " "

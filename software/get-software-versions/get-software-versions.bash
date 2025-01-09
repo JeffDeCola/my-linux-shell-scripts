@@ -1,8 +1,12 @@
-#!/bin/bash
-# my-linux-shell-scripts get-software-versions.bash
+#!/bin/bash -e
+# get-software-versions.bash
 
-# USAGE:
-# bash get-software-versions.bash
+# Get various versions of software on your machine
+
+echo " "
+echo "************************************************************************"
+echo "*********************************** get-software-versions.bash (START) *"
+echo " "
 
 # DECLARE ARRAYS AND INIT SOME VARIABLES --------------------------------------
 
@@ -12,7 +16,6 @@ declare -a version
 declare -a indent
 i=1
 
-echo " "
 echo "Getting your software versions - Processing"
 
 # UBUNTU ----------------------------------------------------------------------
@@ -113,7 +116,9 @@ printf "."
 # ADD A SPACE -----------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
+software[i]="addSpace"
 command[i]="addSpace"
+version[i]="addSpace"
 i=$i+1
 printf "."
 
@@ -690,7 +695,7 @@ do
     if [[ $line == *"pylint"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -703,6 +708,24 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
+i=$i+1
+printf "."
+
+# SHELLCHECK ------------------------------------------------------------------
+
+software[i]="shellcheck"
+theCommand="shellcheck --version"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"version: "* ]]; then
+        version[i]="$line"
+        break
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
@@ -759,6 +782,7 @@ do
     # Add a space
     if [[ $cmd == "addSpace" ]]; then
         echo ""
+        continue # Skip the rest of the loop and goto next index
     fi
 
     # WHITE - Use the Titles in the version area
@@ -777,4 +801,7 @@ do
 
 done
 
+echo " "
+echo "************************************* get-software-versions.bash (END) *"
+echo "************************************************************************"
 echo " "

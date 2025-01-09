@@ -1,6 +1,8 @@
 #!/bin/bash -e
 # docker-remove-old-images.bash
 
+# Removes old docker images (Keeps one image based on IMAGE ID)
+
 echo " "
 echo "************************************************************************"
 echo "******************************** docker-remove-old-images.bash (START) *"
@@ -56,6 +58,7 @@ do
 
 done < <(printf '%s\n' "$docker_images")
 
+echo " "
 echo "********************************** docker-remove-old-images.bash (END) *"
 echo "************************************************************************"
 echo " "
