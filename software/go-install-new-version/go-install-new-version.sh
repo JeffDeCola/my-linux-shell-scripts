@@ -1,5 +1,12 @@
-#!/bin/sh
-# my-global-repo-scripts-private install-new-version-go.sh
+#!/bin/sh -e
+# go-install-new-version.sh
+
+# Install the latest version of golang on linux, macOS, Windows, Raspberry Pi, etc.
+
+echo " "
+echo "************************************************************************"
+echo "************************************ go-install-new-version.sh (START) *"
+echo " "
 
 # Check https://go.dev/dl/ to see latest version
 ver='1.20.1'
@@ -199,3 +206,8 @@ else
     echo ""
     exit
 fi
+
+echo " "
+echo "************************************** go-install-new-version.sh (END) *"
+echo "************************************************************************"
+echo " "
