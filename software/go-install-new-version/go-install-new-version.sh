@@ -35,7 +35,8 @@ echo "    7) ARM 32-bit (RaspPi 1B, Hummingboard, etc...) - INVALID"
 echo "    8) Quit/Exit"
 echo " "
 
-read -r -p "Enter your choice: " choice
+printf "Enter your choice: "
+read -r choice
 
 # 1 LINUX ------------------------------------------------------------------------------------------
 
