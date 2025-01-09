@@ -12,7 +12,7 @@ set -e
 
 # WHAT THIS DOES
 echo "This will get rid of any docker images with the same IMAGE ID"
-echo " " 
+echo " "
 
 # PUT ALL IMAGES IN ARRAY
 docker_images=$(docker images --format "{{.ID}}|{{.Repository}}|{{.Tag}}")
@@ -26,29 +26,29 @@ declare -A image_ids
 # READ docker_images LINE BY LINE
 while IFS= read -r line
 do
-    
+
     # PUT LINE INTO AN ARRAY
     IFS='|' read -r -a array <<< "$line"
     image_id=${array[0]}
     image_name=${array[1]}
     image_tag=${array[2]}
-    
+
     echo "LOOKING AT: ${image_name}:${image_tag} (${image_id})"
 
     if [[ "$image_tag" == "<none>" ]]; then
 
         echo "REMOVING: ${image_name}:${image_tag} (${image_id})"
         docker rmi "${image_id}"
-      
+
     # DO WE HAVE THIS "IMAGE ID" IN THE ARRAY?
     elif  [[ -z "${image_ids[$image_name]}" ]]; then
-    
+
         echo "KEEPING: ${image_name}:${image_tag} (${image_id})"
         # PUT $image_id IN image_ids ARRAY
         image_ids[$image_name]=$image_id
-    
+
     else
-    
+
         echo "REMOVING: ${image_name}:${image_tag} (${image_id})"
         docker rmi "${image_name}:${image_tag}"
 
