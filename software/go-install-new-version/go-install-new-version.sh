@@ -9,7 +9,7 @@ echo "************************************ go-install-new-version.sh (START) *"
 echo " "
 
 # Check https://go.dev/dl/ to see latest version
-ver='1.20.1'
+ver='1.23.4'
 
 # Set file names
 linuxFileName='go'$ver'.linux-amd64.tar.gz'
@@ -19,7 +19,6 @@ windowsFileName='go'$ver'.windows-amd64.msi'
 arm64FileName='go'$ver'.linux-arm64.tar.gz'
 
 # You are about to install go $ver
-echo " "
 echo "You are about to install go version $ver"
 
 # What OS do you have?
@@ -27,23 +26,23 @@ echo ""
 echo "Which OS do you have?"
 echo " "
 echo "    1) Linux"
-echo "    2) Mac OS (x86-64)"
-echo "    3) Mac OS (ARM64)"
+echo "    2) macOS (x86-64)"
+echo "    3) macOS (ARM64)"
 echo "    4) Arch Linux"
 echo "    5) Windows"
-echo "    6) ARM 64-bit (RaspPi 4B, 3B, etc...)"  
-echo "    7) ARM 32-bit (RaspPi 1B, Hummingboard, etc...) - INVALID"  
+echo "    6) ARM 64-bit (RaspPi 4B, 3B, etc...)"
+echo "    7) ARM 32-bit (RaspPi 1B, Hummingboard, etc...) - INVALID"
 echo "    8) Quit/Exit"
 echo " "
 
 read -r -p "Enter your choice: " choice
 
-# LINUX ------------------------------------------------------------------------------------------
+# 1 LINUX ------------------------------------------------------------------------------------------
 
-if 
+if
     [ "$choice" -eq 1 ]; then
     FileName=$linuxFileName
-    
+
     echo "Going to Download $FileName, untar and move to /usr/local"
 
     # cd /tmp
@@ -70,9 +69,9 @@ if
     go version
     echo " "
 
-# macOS (x86-64) ---------------------------------------------------------------------------------
+# 2 macOS (x86-64) ---------------------------------------------------------------------------------
 
-elif 
+elif
     [ "$choice" -eq 2 ]; then
     FileName=$macOSx86_64FileName
 
@@ -96,9 +95,9 @@ elif
     go version
     echo " "
 
-# macOS (ARM64) ----------------------------------------------------------------------------------
+# 3 macOS (ARM64) ----------------------------------------------------------------------------------
 
-elif 
+elif
     [ "$choice" -eq 3 ]; then
     FileName=$macOSARM64FileName
 
@@ -122,9 +121,9 @@ elif
     go version
     echo " "
 
-# ARCH LINUX -------------------------------------------------------------------------------------
+# 4 ARCH LINUX -------------------------------------------------------------------------------------
 
-elif 
+elif
     [ "$choice" -eq 4 ]; then
 
     # Install
@@ -137,9 +136,9 @@ elif
     go version
     echo " "
 
-# WINDOWS ----------------------------------------------------------------------------------------
+# 5 WINDOWS ----------------------------------------------------------------------------------------
 
-elif 
+elif
     [ "$choice" -eq 5 ]; then
     FileName=$windowsFileName
 
@@ -156,12 +155,12 @@ elif
     " .msi file downloaded. Double click in windows to install"
     echo " "
 
-# ARM 64-bit -------------------------------------------------------------------------------------
+# 6 ARM 64-bit -------------------------------------------------------------------------------------
 
-elif 
+elif
     [ "$choice" -eq 6 ]; then
     FileName=$arm64FileName
-    
+
     echo "Going to Download $FileName, untar and move to /usr/local"
 
     # cd /tmp
@@ -188,23 +187,22 @@ elif
     go version
     echo " "
 
-# ARM 32-bit -------------------------------------------------------------------------------------
+# 7 ARM 32-bit -------------------------------------------------------------------------------------
 
-elif 
+elif
     [ "$choice" -eq 7 ]; then
-    
+
     echo "Go does not support 32-bit"
     echo " "
 
-elif 
+# 8 QUIT/EXIT --------------------------------------------------------------------------------------
+
+elif
     [ "$choice" -eq 8 ]; then
-    echo ""
-    exit
+    echo "Exit"
 
 else
-    echo "Invalid choice"
-    echo ""
-    exit
+    tput setaf 1; echo "Invalid choice"; tput sgr0
 fi
 
 echo " "

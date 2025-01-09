@@ -58,7 +58,7 @@ gh pr create --fill
 tput setaf 4; echo "-- gh pr merge -m"; tput sgr0
 gh pr merge -m
 
-#echo " "
+echo " "
 #echo "****************************************** git-merge-branch.bash (END) *"
 #echo "************************************************************************"
 #echo " "
