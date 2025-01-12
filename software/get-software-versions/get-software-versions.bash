@@ -787,16 +787,16 @@ do
 
     # WHITE - Use the Titles in the version area
     if [[ $ver == *"N/A"* ]] || [[ $ver == *"JEFFS"* ]] || [[ $ver == *"DOCKER"* ]] || [[ $ver == *"KEYBASE"* ]]; then
-        tput setaf 7; printf "$ind""   %-28s" "$sw";
-        tput setaf 7; echo "$ver"
+        tput setaf 7; printf "$ind""   %-28s" "$sw"; tput sgr0
+        tput setaf 7; echo "$ver"; tput sgr0
     # RED - Blank or white space - Software Not Installed
     elif [[ -z "${ver// }" ]]; then
-        tput setaf 7; printf "$ind""   %-28s" "$sw";
-        tput setaf 1; echo "Software Not Installed"
+        tput setaf 7; printf "$ind""   %-28s" "$sw"; tput sgr0
+        tput setaf 1; echo "Software Not Installed"; tput sgr0
     # GREEN - Normal Format
     else
-        tput setaf 7; printf "$ind""   %-28s" "$sw";
-        tput setaf 2; echo "$ver"
+        tput setaf 7; printf "$ind""   %-28s" "$sw"; tput sgr0
+        tput setaf 2; echo "$ver"; tput sgr0
     fi
 
 done
