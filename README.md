@@ -5,7 +5,7 @@
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
-_A place to keep useful tools I created in linux shell scripts._
+_A place to keep my linux shell scripts._
 
 Table of Contents
 
