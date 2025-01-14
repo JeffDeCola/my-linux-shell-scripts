@@ -505,6 +505,24 @@ done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
+# PDFLATEX -----------------------------------------------------------------------
+
+software[i]="pdflatex"
+theCommand="pdflatex -version"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"pdfTeX"* ]]; then
+        version[i]=$line
+        break
+    fi  
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
 # LATEX tlmgr -----------------------------------------------------------------
 
 indent[i]="  "
