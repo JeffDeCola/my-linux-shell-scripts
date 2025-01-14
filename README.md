@@ -9,8 +9,12 @@ _A place to keep my linux shell scripts._
 
 Table of Contents
 
+* [CONCOURSE](https://github.com/JeffDeCola/my-linux-shell-scripts#councourse)
+* [DOCKER](https://github.com/JeffDeCola/my-linux-shell-scripts#docker)
+* [GIT](https://github.com/JeffDeCola/my-linux-shell-scripts#git)
+* [GO](https://github.com/JeffDeCola/my-linux-shell-scripts#go)
 * [LINUX](https://github.com/JeffDeCola/my-linux-shell-scripts#linux)
-* [SOFTWARE](https://github.com/JeffDeCola/my-linux-shell-scripts#software)
+* [VAGRANT](https://github.com/JeffDeCola/my-linux-shell-scripts#vagrant)
 
 Documentation and Reference
 
@@ -21,21 +25,13 @@ Documentation and Reference
   _built with
   [concourse](https://github.com/JeffDeCola/my-linux-shell-scripts/blob/master/ci-README.md)_
 
-## LINUX
-
-* [apt-get-update-upgrade](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/apt-get-update-upgrade)
-
-  _Update your linux distribution._
-
-* [pacman-Syu](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/pacman-Syu)
-
-  _Update your arch linux distribution._
-
-## SOFTWARE
+## CONCOURSE
 
 * [concourse-connect-targets-to-teams](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/concourse-connect-targets-to-teams)
 
   _Connect local machine targets to concourse teams._
+
+## DOCKER
 
 * [docker-remove-all](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/docker-remove-all)
 
@@ -45,18 +41,36 @@ Documentation and Reference
 
   _Removes old docker images (Keeps one image based on IMAGE ID)._
 
-* [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/get-software-versions)
 
-  _Get various versions of software on your machine._
+
+## GIT
 
 * [git-merge-branch](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/git-merge-branch)
 
   _Using git to add, commit and push to github.
   Then using gh to create a pull request and merge into the main branch._
 
+## GO
+
 * [go-install-new-version](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/go-install-new-version)
 
   _Install the latest version of golang on linux, macOS, Windows, Raspberry Pi, etc._
+
+## LINUX
+
+* [apt-get-update-upgrade](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/apt-get-update-upgrade)
+
+  _Update your linux distribution._
+
+* [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/get-software-versions)
+
+  _Get various versions of software on your machine._
+
+* [pacman-Syu](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/pacman-Syu)
+
+  _Update your arch linux distribution._
+
+## VAGRANT
 
 * [vagrant-remove-images](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/software/vagrant-remove-images)
 
