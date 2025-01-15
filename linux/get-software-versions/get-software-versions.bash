@@ -35,7 +35,7 @@ do
         NO_LEAD_SPACE="$(echo -e "${line}" | sed -e 's/^[[:space:]]*//')"
         version[i]=$NO_LEAD_SPACE
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -54,7 +54,7 @@ do
         version[i]=$line
     else
         version[i]="N/A"
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -107,7 +107,7 @@ do
         version[i]=$line
     else
         version[i]="N/A"
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -228,7 +228,7 @@ do
     if [[ $line == *"SDK"* ]]; then
         version[i]=$line
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -264,7 +264,7 @@ do
     if [[ $line == *"version"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -304,7 +304,7 @@ do
     if [[ $line == *"GTKWave Analyzer"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -322,7 +322,7 @@ do
     if [[ $line == *"Verilog version"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -443,7 +443,7 @@ do
     if [[ $line == *"Client"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -462,7 +462,7 @@ do
     if [[ $line == *"Service"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -479,54 +479,27 @@ while IFS= read -r line
 do
     if [[ $line == *"Major:"* ]]; then
         # Shorting the line a bit to 60 characters"
-        SHORTEN=${line:0:60}  
+        SHORTEN=${line:0:60}
         version[i]="$SHORTEN, etc..."
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
-# LATEX -----------------------------------------------------------------------
+# LaTeX ---------------------------------------------------------------------
 
-software[i]="latex"
-theCommand="latex -version"
+software[i]="LaTeX"
+theCommand="NOTHING"
 command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-# LOOK AT LINE BY LINE
-while IFS= read -r line
-do
-    if [[ $line == *"pdfTeX"* ]]; then
-        version[i]=$line
-        break
-    fi  
-done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
-printf "."
-
-# PDFLATEX -----------------------------------------------------------------------
-
-software[i]="pdflatex"
-theCommand="pdflatex -version"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-# LOOK AT LINE BY LINE
-while IFS= read -r line
-do
-    if [[ $line == *"pdfTeX"* ]]; then
-        version[i]=$line
-        break
-    fi  
-done < <(printf '%s\n' "$OUTPUT")
+version[i]="LaTeX"
 i=$i+1
 printf "."
 
 # LATEX tlmgr -----------------------------------------------------------------
 
 indent[i]="  "
-software[i]="tlmgr"
+software[i]="tlmgr (package manager)"
 theCommand="tlmgr -version"
 command[i]=$theCommand
 # Only stdout, not stderr
@@ -537,15 +510,53 @@ do
     if [[ $line == *"revision"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
 
-# LATEX dvisvgm ----------------------------------------------------------------
+# LATEX latex (.tex -> .dvi) --------------------------------------------------------
 
 indent[i]="  "
-software[i]="dvisvgm"
+software[i]="latex (.tex -> .dvi)"
+theCommand="latex -version"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"pdfTeX"* ]]; then
+        version[i]=$line
+        break
+    fi
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
+# LATEX pdflatex (.tex -> .pdf) -----------------------------------------------
+
+indent[i]="  "
+software[i]="pdflatex (.tex -> .pdf)"
+theCommand="pdflatex -version"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+while IFS= read -r line
+do
+    if [[ $line == *"pdfTeX"* ]]; then
+        version[i]=$line
+        break
+    fi
+done < <(printf '%s\n' "$OUTPUT")
+i=$i+1
+printf "."
+
+# LATEX dvisvgm (.dvi -> .svg) ------------------------------------------------
+
+indent[i]="  "
+software[i]="dvisvgm (.dvi -> .svg)"
 theCommand="dvisvgm --version"
 command[i]=$theCommand
 # Only stdout, not stderr
@@ -554,10 +565,10 @@ version[i]="$OUTPUT"
 i=$i+1
 printf "."
 
-# LATEX ghostscript ------------------------------------------------------------
+# LATEX ghostscript (.pdf/.ps -> many types) ----------------------------------
 
 indent[i]="  "
-software[i]="ghostscript"
+software[i]="ghostscript (.pdf/.ps -> )"
 theCommand="ghostscript -v"
 command[i]=$theCommand
 # Only stdout, not stderr
@@ -570,7 +581,7 @@ do
         NO_LEAD_SPACE="$(echo -e "${line}" | sed -e 's/^[[:space:]]*//')"
         version[i]=$NO_LEAD_SPACE
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -599,7 +610,7 @@ do
     if [[ $line == *"Packer"* ]]; then
         version[i]=$line
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -652,7 +663,7 @@ do
     if [[ $line == *"Python "* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -671,7 +682,7 @@ do
     if [[ $line == *"pip "* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -742,7 +753,7 @@ do
     if [[ $line == *"version: "* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -760,7 +771,7 @@ do
     if [[ $line == *"Installed"* ]]; then
         version[i]="$line"
         break
-    fi  
+    fi
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -777,7 +788,7 @@ while IFS= read -r line
 do
     #Right now its on the first line
     version[i]="$line"
-    break 
+    break
 done < <(printf '%s\n' "$OUTPUT")
 i=$i+1
 printf "."
@@ -804,7 +815,7 @@ do
     fi
 
     # WHITE - Use the Titles in the version area
-    if [[ $ver == *"N/A"* ]] || [[ $ver == *"JEFFS"* ]] || [[ $ver == *"DOCKER"* ]] || [[ $ver == *"KEYBASE"* ]]; then
+    if [[ $ver == *"N/A"* ]] || [[ $ver == *"JEFFS"* ]] || [[ $ver == *"DOCKER"* ]] || [[ $ver == *"KEYBASE"* ]] || [[ $ver == *"LaTeX"* ]]; then
         tput setaf 7; printf "$ind""   %-28s" "$sw"; tput sgr0
         tput setaf 7; echo "$ver"; tput sgr0
     # RED - Blank or white space - Software Not Installed
