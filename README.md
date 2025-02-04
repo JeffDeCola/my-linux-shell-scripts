@@ -60,6 +60,10 @@ Documentation and Reference
 
   _Update your linux distribution._
 
+* [generate-ssh-keys](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/pacman-Syu)
+
+  _Generate authentication keys for ssh (secure shell)._
+
 * [get-software-versions](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/get-software-versions)
 
   _Get various versions of software on your machine._
