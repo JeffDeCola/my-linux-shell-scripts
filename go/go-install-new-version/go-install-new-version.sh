@@ -9,7 +9,7 @@ echo "************************************ go-install-new-version.sh (START) *"
 echo " "
 
 # Check https://go.dev/dl/ to see latest version
-ver='1.23.4'
+ver='1.23.6'
 
 # Set file names
 linuxFileName='go'$ver'.linux-amd64.tar.gz'
