@@ -15,14 +15,14 @@ echo " "
 
 echo "What is the name of the machine?"
 echo "This will be used as a comment in the ssh key."
-echo -n "Machine Name: "
+printf "Machine Name: "
 read -r machine_name
 echo ""
 
 # --------------------------------------------
 # Would you like to generate the keys in ~/.ssh folder or in the current folder?
 
-echo -n "Would you like to place the keys in the ~/.ssh folder? (y/n): "
+printf "Would you like to place the keys in the ~/.ssh folder? (y/n): "
 read -r answer
 echo " "
 
