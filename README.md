@@ -60,7 +60,7 @@ Documentation and Reference
 
   _Update your linux distribution._
 
-* [generate-ssh-keys](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/pacman-Syu)
+* [generate-ssh-keys](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/linux/generate-ssh-keys)
 
   _Generate authentication keys for ssh (secure shell)._
 
