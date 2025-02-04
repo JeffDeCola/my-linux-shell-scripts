@@ -8,3 +8,6 @@
 
 # WINDOWS
 *.jpg:Zone.Identifier
+
+# SSH KEYS
+id_rsa*
