@@ -1,15 +1,14 @@
 # MY LINUX SHELL SCRIPTS
 
 [![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/my-linux-shell-scripts)](https://github.com/JeffDeCola/my-linux-shell-scripts/tags)
-[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-linux-shell-scripts/issues)
-[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
 _A place to keep my linux shell scripts._
 
 Table of Contents
 
-* [CONCOURSE](https://github.com/JeffDeCola/my-linux-shell-scripts#councourse)
+* [CONCOURSE](https://github.com/JeffDeCola/my-linux-shell-scripts#concourse)
 * [DOCKER](https://github.com/JeffDeCola/my-linux-shell-scripts#docker)
 * [GIT](https://github.com/JeffDeCola/my-linux-shell-scripts#git)
 * [GO](https://github.com/JeffDeCola/my-linux-shell-scripts#go)
@@ -18,8 +17,7 @@ Table of Contents
 
 Documentation and Reference
 
-* Linux
-  [common commands cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/operating-systems/linux/common-commands-cheat-sheet)
+* [common linux commands](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/operating-systems/linux/common-commands-cheat-sheet)
 * This repos
   [github webpage](https://jeffdecola.github.io/my-linux-shell-scripts/)
   _built with
