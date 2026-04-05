@@ -692,11 +692,11 @@ printf "."
 
 # PYTHON3 ---------------------------------------------------------------------
 
-software[i]="python"
-theCommand="python -V"
+software[i]="python3"
+theCommand="python3 --version | cut -d' ' -f2"
 command[i]=$theCommand
 # Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
 version[i]="$OUTPUT"
 ((i++))  # or i=$((i+1))
 printf "."
@@ -704,11 +704,11 @@ printf "."
 # PYTHON3 pip ------------------------------------------------------------------
 
 indent[i]="  "
-software[i]="pip"
-theCommand="pip -V"
+software[i]="pip3"
+theCommand="pip3 --version | cut -d' ' -f2"
 command[i]=$theCommand
 # Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
 version[i]="$OUTPUT"
 ((i++))  # or i=$((i+1))
 printf "."
