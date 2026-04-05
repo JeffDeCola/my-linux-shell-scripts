@@ -8,6 +8,9 @@ echo "************************************************************************"
 echo "*********************************** get-software-versions.bash (START) *"
 echo " "
 
+echo "HOSTNAME: $(hostname)"
+echo " "
+
 # DECLARE ARRAYS AND INIT SOME VARIABLES --------------------------------------
 
 declare -a software
@@ -37,7 +40,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GNOME SHELL -----------------------------------------------------------------
@@ -56,7 +59,7 @@ do
         version[i]="N/A"
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # KERNAL ----------------------------------------------------------------------
@@ -68,7 +71,7 @@ command[i]=$theCommand
 OUTPUT="$($theCommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # BASH ------------------------------------------------------------------------
@@ -79,7 +82,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # ZSH -------------------------------------------------------------------------
@@ -90,7 +93,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GUEST ADDITIONS (VIRTUALBOX) ------------------------------------------------
@@ -109,7 +112,7 @@ do
         version[i]="N/A"
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # -----------------------------------------------------------------------------
@@ -119,7 +122,7 @@ printf "."
 software[i]="addSpace"
 command[i]="addSpace"
 version[i]="addSpace"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # AWS -------------------------------------------------------------------------
@@ -131,7 +134,7 @@ command[i]=$theCommand
 OUTPUT="$($theCommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # BIND ------------------------------------------------------------------------
@@ -143,7 +146,7 @@ command[i]=$theCommand
 OUTPUT="$($theCommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # DOCKER TITLE ----------------------------------------------------------------
@@ -166,7 +169,7 @@ do
         printf "."
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 
@@ -194,14 +197,14 @@ if [[ $dockerNotFound == "0" ]]; then
             fi
             # NOW LOOK FOR SERVER VERSION
             foundFirstVersion="1"
-            i=$i+1
+            ((i++))  # or i=$((i+1))
             indent[i]="  "
             software[i]="server"
             command[i]=$theCommand
             printf "."
         fi
     done < <(printf '%s\n' "$OUTPUT")
-    i=$i+1
+    ((i++))  # or i=$((i+1))
     printf "."
 fi
 
@@ -213,7 +216,7 @@ command[i]=$theCommand
 OUTPUT="$($theCommand 2> /dev/null)"
 # LOOK AT LINE BY LINE
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GCLOUD ----------------------------------------------------------------------
@@ -230,7 +233,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GCLOUD KUBECTL --------------------------------------------------------------
@@ -248,7 +251,7 @@ do
         break
     fi  
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GH (github CLI) -------------------------------------------------------------
@@ -266,7 +269,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GIT -------------------------------------------------------------------------
@@ -277,7 +280,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GO --------------------------------------------------------------------------
@@ -288,7 +291,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # GTKWAVE ---------------------------------------------------------------------
@@ -306,7 +309,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # IVERILOG --------------------------------------------------------------------
@@ -324,7 +327,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools TITLE -----------------------------------------------------
@@ -333,7 +336,7 @@ software[i]="JEFFS"
 theCommand="NOTHING"
 command[i]=$theCommand
 version[i]="JEFFS"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (decryptfile) ----------------------------------------------
@@ -345,7 +348,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (encryptfile) ----------------------------------------------
@@ -357,7 +360,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (md5-hash-file) -------------------------------------------
@@ -369,7 +372,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (md5-hash-file) -------------------------------------------
@@ -381,7 +384,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (markdown-check-links) ------------------------------------
@@ -393,7 +396,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (markdown-create-table-of-contents) -----------------------
@@ -405,7 +408,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # JEFFS my-go-tools (markdown-delimiter-doer) ---------------------------------
@@ -417,7 +420,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]=$OUTPUT
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # KEYBASE ---------------------------------------------------------------------
@@ -426,7 +429,7 @@ software[i]="KEYBASE"
 theCommand="NOTHING"
 command[i]=$theCommand
 version[i]="KEYBASE"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # KEYBASE (CLIENT) ------------------------------------------------------------
@@ -445,7 +448,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # KEYBASE (SERVICE) -----------------------------------------------------------
@@ -464,7 +467,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # KUBECTL ---------------------------------------------------------------------
@@ -484,7 +487,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # LaTeX ---------------------------------------------------------------------
@@ -493,7 +496,7 @@ software[i]="LaTeX"
 theCommand="NOTHING"
 command[i]=$theCommand
 version[i]="LaTeX"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # LATEX tlmgr -----------------------------------------------------------------
@@ -512,7 +515,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # LATEX latex (.tex -> .dvi) --------------------------------------------------------
@@ -531,7 +534,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # LATEX pdflatex (.tex -> .pdf) -----------------------------------------------
@@ -550,7 +553,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # LATEX dvisvgm (.dvi -> .svg) ------------------------------------------------
@@ -562,7 +565,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # LATEX ghostscript (.pdf/.ps -> many types) ----------------------------------
@@ -583,7 +586,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # NATS-SERVER -----------------------------------------------------------------
@@ -594,7 +597,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PACKER ----------------------------------------------------------------------
@@ -612,7 +615,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # POSTGRES --------------------------------------------------------------------
@@ -623,7 +626,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # POSTGRES psql ---------------------------------------------------------------
@@ -635,7 +638,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PROTOC ----------------------------------------------------------------------
@@ -646,7 +649,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PYTHON (Redirect stderr) ----------------------------------------------------
@@ -665,7 +668,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PYTHON pip ------------------------------------------------------------------
@@ -684,7 +687,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PYTHON3 ---------------------------------------------------------------------
@@ -695,7 +698,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PYTHON3 pip3 -----------------------------------------------------------------
@@ -707,7 +710,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # PYTHON3 pylint ---------------------------------------------------------------
@@ -726,7 +729,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # REDIS-CLI -------------------------------------------------------------------
@@ -737,7 +740,7 @@ command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # SHELLCHECK ------------------------------------------------------------------
@@ -755,7 +758,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # VAGRANT ---------------------------------------------------------------------
@@ -773,7 +776,7 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # VS CODE ---------------------------------------------------------------------
@@ -790,7 +793,7 @@ do
     version[i]="$line"
     break
 done < <(printf '%s\n' "$OUTPUT")
-i=$i+1
+((i++))  # or i=$((i+1))
 printf "."
 
 # -----------------------------------------------------------------------------
