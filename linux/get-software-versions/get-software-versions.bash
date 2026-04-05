@@ -65,7 +65,7 @@ printf "."
 # KERNAL ----------------------------------------------------------------------
 
 software[i]="kernal"
-theCommand="uname -a"
+theCommand="uname -r"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
@@ -654,24 +654,54 @@ printf "."
 
 # PYTHON (Redirect stderr) ----------------------------------------------------
 
+#software[i]="python"
+#theCommand="python -V"
+#command[i]=$theCommand
+#command[i]=$theCommand
+# Only stdout, not stderr
+#OUTPUT="$($theCommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+#while IFS= read -r line
+#do
+#    if [[ $line == *"Python "* ]]; then
+#        version[i]="$line"
+#        break
+#    fi
+#done < <(printf '%s\n' "$OUTPUT")
+#((i++))  # or i=$((i+1))
+#printf "."
+
+# PYTHON pip ------------------------------------------------------------------
+
+#indent[i]="  "
+#software[i]="pip"
+#theCommand="pip -V"
+#command[i]=$theCommand
+# Only stdout, not stderr
+#OUTPUT="$($theCommand 2> /dev/null)"
+# LOOK AT LINE BY LINE
+#while IFS= read -r line
+#do
+#    if [[ $line == *"pip "* ]]; then
+#        version[i]="$line"
+#        break
+#    fi
+#done < <(printf '%s\n' "$OUTPUT")
+#((i++))  # or i=$((i+1))
+#printf "."
+
+# PYTHON3 ---------------------------------------------------------------------
+
 software[i]="python"
 theCommand="python -V"
 command[i]=$theCommand
-command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
-# LOOK AT LINE BY LINE
-while IFS= read -r line
-do
-    if [[ $line == *"Python "* ]]; then
-        version[i]="$line"
-        break
-    fi
-done < <(printf '%s\n' "$OUTPUT")
+version[i]="$OUTPUT"
 ((i++))  # or i=$((i+1))
 printf "."
 
-# PYTHON pip ------------------------------------------------------------------
+# PYTHON3 pip ------------------------------------------------------------------
 
 indent[i]="  "
 software[i]="pip"
@@ -679,56 +709,7 @@ theCommand="pip -V"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
-# LOOK AT LINE BY LINE
-while IFS= read -r line
-do
-    if [[ $line == *"pip "* ]]; then
-        version[i]="$line"
-        break
-    fi
-done < <(printf '%s\n' "$OUTPUT")
-((i++))  # or i=$((i+1))
-printf "."
-
-# PYTHON3 ---------------------------------------------------------------------
-
-software[i]="python3"
-theCommand="python3 -V"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
 version[i]="$OUTPUT"
-((i++))  # or i=$((i+1))
-printf "."
-
-# PYTHON3 pip3 -----------------------------------------------------------------
-
-indent[i]="  "
-software[i]="pip3"
-theCommand="pip3 -V"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]="$OUTPUT"
-((i++))  # or i=$((i+1))
-printf "."
-
-# PYTHON3 pylint ---------------------------------------------------------------
-
-indent[i]="  "
-software[i]="pylint"
-theCommand="pylint --version"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-# LOOK AT LINE BY LINE
-while IFS= read -r line
-do
-    if [[ $line == *"pylint"* ]]; then
-        version[i]="$line"
-        break
-    fi
-done < <(printf '%s\n' "$OUTPUT")
 ((i++))  # or i=$((i+1))
 printf "."
 
