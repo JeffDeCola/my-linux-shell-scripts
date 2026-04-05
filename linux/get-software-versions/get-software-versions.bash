@@ -717,7 +717,7 @@ printf "."
 
 indent[i]="  "
 software[i]="pylint"
-theCommand="pylint --version | cut -d' ' -f2"
+theCommand="pylint --version 2>/dev/null | head -1 | cut -d' ' -f2"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$(eval "$theCommand" 2> /dev/null)"
