@@ -23,7 +23,7 @@ echo "Getting your software versions - Processing"
 
 # OS ----------------------------------------------------------------------
 
-software[i]="OS"
+software[i]="os"
 theCommand="lsb_release -a"
 command[i]=$theCommand
 # Only stdout, not stderr
