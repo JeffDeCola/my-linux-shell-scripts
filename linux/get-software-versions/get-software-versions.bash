@@ -21,9 +21,9 @@ i=1
 
 echo "Getting your software versions - Processing"
 
-# UBUNTU ----------------------------------------------------------------------
+# OS ----------------------------------------------------------------------
 
-software[i]="ubuntu"
+software[i]="OS"
 theCommand="lsb_release -a"
 command[i]=$theCommand
 # Only stdout, not stderr
@@ -62,9 +62,9 @@ done < <(printf '%s\n' "$OUTPUT")
 ((i++))  # or i=$((i+1))
 printf "."
 
-# KERNAL ----------------------------------------------------------------------
+# KERNEL ----------------------------------------------------------------------
 
-software[i]="kernal"
+software[i]="kernel"
 theCommand="uname -r"
 command[i]=$theCommand
 # Only stdout, not stderr
@@ -706,6 +706,18 @@ printf "."
 indent[i]="  "
 software[i]="pip3"
 theCommand="pip3 --version | cut -d' ' -f2"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
+version[i]="$OUTPUT"
+((i++))  # or i=$((i+1))
+printf "."
+
+# PYLINT ----------------------------------------------------------------------
+
+indent[i]="  "
+software[i]="pylint"
+theCommand="pylint --version | cut -d' ' -f2"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$(eval "$theCommand" 2> /dev/null)"
