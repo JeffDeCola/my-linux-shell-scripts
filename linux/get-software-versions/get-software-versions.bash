@@ -286,7 +286,7 @@ printf "."
 # GO --------------------------------------------------------------------------
 
 software[i]="go"
-theCommand="go version"
+theCommand="/usr/local/go/bin/go version"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
@@ -600,6 +600,50 @@ version[i]="$OUTPUT"
 ((i++))  # or i=$((i+1))
 printf "."
 
+# NGINX -----------------------------------------------------------------------
+
+software[i]="nginx"
+theCommand="nginx -v 2>/dev/null | cut -d'/' -f2"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
+version[i]="$OUTPUT"
+((i++))
+printf "."
+
+# OLLAMA ----------------------------------------------------------------------
+
+software[i]="ollama"
+theCommand="ollama --version | cut -d' ' -f4"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
+version[i]="$OUTPUT"
+((i++))
+printf "."
+
+# OPENCLAW --------------------------------------------------------------------
+
+software[i]="openclaw"
+# Source nvm to load PATH, get version from stderr, grab first line, extract version number
+theCommand="source ~/.nvm/nvm.sh && openclaw -v 2>&1 | head -1 | cut -d' ' -f2"
+command[i]=$theCommand
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
+version[i]="$OUTPUT"
+((i++))
+printf "."
+
+# OPEN-WEBUI ------------------------------------------------------------------
+
+software[i]="open-webui"
+theCommand="docker exec open-webui cat /app/package.json | grep '\"version\"' | head -1 | cut -d'\"' -f4"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
+version[i]="$OUTPUT"
+((i++))
+printf "."
+
 # PACKER ----------------------------------------------------------------------
 
 software[i]="packer"
@@ -752,6 +796,17 @@ do
     fi
 done < <(printf '%s\n' "$OUTPUT")
 ((i++))  # or i=$((i+1))
+printf "."
+
+# TAILSCALE -------------------------------------------------------------------
+
+software[i]="tailscale"
+theCommand="tailscale version | head -1"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$(eval "$theCommand" 2> /dev/null)"
+version[i]="$OUTPUT"
+((i++))
 printf "."
 
 # VAGRANT ---------------------------------------------------------------------
