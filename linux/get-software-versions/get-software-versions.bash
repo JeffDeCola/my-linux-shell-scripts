@@ -210,7 +210,7 @@ fi
 
 # FLY -------------------------------------------------------------------------
 software[i]="fly"
-theCommand="fly -version"
+theCommand="/home/jeff/bin/fly -version"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"

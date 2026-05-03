@@ -20,6 +20,15 @@ read -r machine_name
 echo ""
 
 # --------------------------------------------
+#Ask the user what is the name of the keys
+
+echo "What is the name of the keys?"
+echo "This will be used as the file name for the keys."
+printf "Key Name: "
+read -r key_name
+echo ""
+
+# --------------------------------------------
 # Would you like to generate the keys in ~/.ssh folder or in the current folder?
 
 printf "Would you like to place the keys in the ~/.ssh folder? (y/n): "
@@ -28,9 +37,9 @@ echo " "
 
 # Generate the ssh keys based on the user's input
 if [ "$answer" = "y" ]; then
-    key_path="$HOME/.ssh/id_rsa"
+    key_path="$HOME/.ssh/$key_name"
 else
-    key_path="./id_rsa"
+    key_path="./$key_name"
 fi
 
 # --------------------------------------------
