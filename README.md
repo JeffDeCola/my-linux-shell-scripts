@@ -39,6 +39,10 @@ Documentation and Reference
 
   _Removes old docker images (Keeps one image based on IMAGE ID)._
 
+* [docker-install](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/docker/docker-install)
+
+  _Install the latest version of docker on linux._
+
 ## GIT
 
 * [git-merge-branch](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/git/git-merge-branch)
@@ -50,7 +54,7 @@ Documentation and Reference
 
 * [go-install-new-version](https://github.com/JeffDeCola/my-linux-shell-scripts/tree/master/go/go-install-new-version)
 
-  _Install the latest version of golang on linux, macOS, Windows, Raspberry Pi, etc._
+  _Install the latest version of golang on linux, macOS, Windows, Rasp Pi, etc._
 
 ## LINUX
 
