@@ -11,6 +11,20 @@ echo " "
 # Check https://go.dev/dl/ to see latest version
 ver='1.24.0'
 
+# You are about to install go $ver
+echo "Currently set to install go version $ver"
+echo "Check https://go.dev/dl/ to see latest version"
+echo " "
+
+# Would you like to change the version to install?
+printf "Would you like to change the version to install? (y/n): "
+read -r changeVersion
+
+if [ "$changeVersion" = "y" ] || [ "$changeVersion" = "Y" ]; then
+    printf "Enter the version you want to install: "
+    read -r ver
+fi
+
 # Set file names
 linuxFileName='go'$ver'.linux-amd64.tar.gz'
 macOSx86_64FileName='go'$ver'.darwin-amd64.pkg'
@@ -18,11 +32,7 @@ macOSARM64FileName='go'$ver'.darwin-arm64.pkg'
 windowsFileName='go'$ver'.windows-amd64.msi'
 arm64FileName='go'$ver'.linux-arm64.tar.gz'
 
-# You are about to install go $ver
-echo "You are about to install go version $ver"
-
 # What OS do you have?
-echo ""
 echo "Which OS do you have?"
 echo " "
 echo "    1) Linux"
