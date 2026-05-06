@@ -22,10 +22,11 @@ echo ""
 # --------------------------------------------
 #Ask the user what is the name of the keys
 
-echo "What is the name of the keys?"
-echo "This will be used as the file name for the keys."
-printf "Key Name: "
+echo "What is the filename of the keys?"
+echo "If you leave this blank, the default name will be 'id_rsa'."
+printf "Key Name [id_rsa]: "
 read -r key_name
+key_name="${key_name:-id_rsa}"
 echo ""
 
 # --------------------------------------------
