@@ -15,8 +15,12 @@ echo " "
 ver='1.26.3'
 
 # What version of go do you have
-currentVer=$(go version | awk '{print $3}' | sed 's/^go//')
-echo "Current version is                    ${GREEN}$currentVer"${RESET}
+if command -v go >/dev/null 2>&1; then
+    currentVer=$(go version | awk '{print $3}' | sed 's/^go//')
+else
+    currentVer="(not installed)"
+fi
+echo "Current version is                    ${GREEN}$currentVer${RESET}"
 
 # You are about to install go $ver
 echo "This script will install version      ${GREEN}$ver${RESET}"
@@ -25,8 +29,9 @@ echo "Check https://go.dev/dl/ to see latest versions"
 echo " "
 
 # Would you like to change the version to install?
-printf "Would you like to change the version to install? (y/n): "
+printf "Would you like to change the version to install? (y/return to continue): "
 read -r changeVersion
+echo " "
 
 if [ "$changeVersion" = "y" ] || [ "$changeVersion" = "Y" ]; then
     printf "Enter the version you want to install: "
@@ -99,8 +104,8 @@ elif
     # cd /tmp
     cd /tmp || exit
 
-    # wget
-    wget https://go.dev/dl/$FileName
+    # curl
+    curl -fLO https://go.dev/dl/$FileName
 
     # Install
     sudo installer -pkg $FileName -target /usr/local
@@ -111,7 +116,9 @@ elif
     # Show version
     echo " "
     echo "Your updated go version is:"
-    go version
+    /usr/local/go/bin/go version
+    echo " "
+    echo "You may have to open a new terminal for you to test go version"
     echo " "
 
 # 3 macOS (ARM64) ----------------------------------------------------------------------------------
@@ -125,8 +132,8 @@ elif
     # cd /tmp
     cd /tmp || exit
 
-    # wget
-    wget https://go.dev/dl/$FileName
+    # curl
+    curl -fLO https://go.dev/dl/$FileName
 
     # Install
     sudo installer -pkg $FileName -target /usr/local
@@ -137,7 +144,9 @@ elif
     # Show version
     echo " "
     echo "Your updated go version is:"
-    go version
+    /usr/local/go/bin/go version
+    echo " "
+    echo "You may have to open a new terminal for you to test go version"
     echo " "
 
 # 4 ARCH LINUX -------------------------------------------------------------------------------------
