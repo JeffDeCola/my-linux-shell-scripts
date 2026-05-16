@@ -145,14 +145,21 @@ elif
 elif
     [ "$choice" -eq 4 ]; then
 
-    # Install
-    echo "sudo pacman -S go"
-    sudo pacman -S go
+    # Is go installed
+    if command -v go >/dev/null 2>&1; then
+        echo "Go already installed: $(go version | awk '{print $3}' | sed 's/^go//')"
+        echo "Checking for updates..."
+    else
+        echo "Installing Go..."
+    fi
+
+    # installs if missing, upgrades if newer
+    sudo pacman -S --noconfirm go
 
     # Show version
     echo " "
-    echo "Your updated go version is:"
-    go version
+    echo "Your go version is:"
+    go version | awk '{print $3}' | sed 's/^go//'
     echo " "
 
 # 5 WINDOWS ----------------------------------------------------------------------------------------
