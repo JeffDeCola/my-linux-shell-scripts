@@ -3,17 +3,25 @@
 
 # Install the latest version of golang on linux, macOS, Windows, Raspberry Pi, etc.
 
+GREEN=$(tput setaf 2)
+RESET=$(tput sgr0)
+
 echo " "
 echo "************************************************************************"
 echo "************************************ go-install-new-version.sh (START) *"
 echo " "
 
 # Check https://go.dev/dl/ to see latest version
-ver='1.24.0'
+ver='1.26.3'
+
+# What version of go do you have
+currentVer=$(go version | awk '{print $3}' | sed 's/^go//')
+echo "Current version is                    ${GREEN}$currentVer"${RESET}
 
 # You are about to install go $ver
-echo "Currently set to install go version $ver"
-echo "Check https://go.dev/dl/ to see latest version"
+echo "This script will install version      ${GREEN}$ver${RESET}"
+echo " "
+echo "Check https://go.dev/dl/ to see latest versions"
 echo " "
 
 # Would you like to change the version to install?
