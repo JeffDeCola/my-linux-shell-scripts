@@ -3,8 +3,26 @@
 
 # Install the latest version of golang on linux, macOS, Windows, Raspberry Pi, etc.
 
-GREEN=$(tput setaf 2)
-RESET=$(tput sgr0)
+# COLOR SUPPORT --------------------------------------------------------------
+# Guard tput: minimal LXCs may not have ncurses-bin installed
+if command -v tput >/dev/null 2>&1; then
+    GREEN=$(tput setaf 2)
+    RED=$(tput setaf 1)
+    RESET=$(tput sgr0)
+else
+    GREEN=""
+    RED=""
+    RESET=""
+fi
+
+# SUDO SUPPORT ---------------------------------------------------------------
+# Use sudo only if not already root. LXC containers run as root and often
+# do not have sudo installed; running as root we don't need it anyway.
+if [ "$(id -u)" -eq 0 ]; then
+    SUDO=""
+else
+    SUDO="sudo"
+fi
 
 echo " "
 echo "************************************************************************"
@@ -79,18 +97,20 @@ if
     tar -xf $FileName
 
     # Remove current version go
-    sudo rm -rf /usr/local/go
+    $SUDO rm -rf /usr/local/go
 
     # Move new version
-    sudo mv go /usr/local
+    $SUDO mv go /usr/local
 
     # Remove downloaded file
     rm $FileName
 
-    # Show version
+    # Show version (full path: /usr/local/go/bin not yet on PATH for fresh installs)
     echo " "
     echo "Your updated go version is:"
-    go version
+    /usr/local/go/bin/go version
+    echo " "
+    echo "You may have to open a new terminal for you to test 'go version'"
     echo " "
 
 # 2 macOS (x86-64) ---------------------------------------------------------------------------------
@@ -108,7 +128,7 @@ elif
     curl -fLO https://go.dev/dl/$FileName
 
     # Install
-    sudo installer -pkg $FileName -target /usr/local
+    $SUDO installer -pkg $FileName -target /usr/local
 
     # Remove downloaded file
     rm $FileName
@@ -136,7 +156,7 @@ elif
     curl -fLO https://go.dev/dl/$FileName
 
     # Install
-    sudo installer -pkg $FileName -target /usr/local
+    $SUDO installer -pkg $FileName -target /usr/local
 
     # Remove downloaded file
     rm $FileName
@@ -163,7 +183,7 @@ elif
     fi
 
     # installs if missing, upgrades if newer
-    sudo pacman -S --noconfirm go
+    $SUDO pacman -S --noconfirm go
 
     # Show version
     echo " "
@@ -187,7 +207,7 @@ elif
 
     # Install
     echo " "
-    " .msi file downloaded. Double click in windows to install"
+    echo ".msi file downloaded. Double click in windows to install"
     echo " "
 
 # 6 ARM 64-bit -------------------------------------------------------------------------------------
@@ -208,18 +228,20 @@ elif
     tar -xf $FileName
 
     # Remove current version go
-    sudo rm -rf /usr/local/go
+    $SUDO rm -rf /usr/local/go
 
     # Move new version
-    sudo mv go /usr/local
+    $SUDO mv go /usr/local
 
     # Remove downloaded file
     rm $FileName
 
-    # Show version
+    # Show version (full path: /usr/local/go/bin not yet on PATH for fresh installs)
     echo " "
     echo "Your updated go version is:"
-    go version
+    /usr/local/go/bin/go version
+    echo " "
+    echo "You may have to open a new terminal for you to test 'go version'"
     echo " "
 
 # 7 ARM 32-bit -------------------------------------------------------------------------------------
@@ -237,7 +259,7 @@ elif
     echo "Exit"
 
 else
-    tput setaf 1; echo "Invalid choice"; tput sgr0
+    echo "${RED}Invalid choice${RESET}"
 fi
 
 echo " "
