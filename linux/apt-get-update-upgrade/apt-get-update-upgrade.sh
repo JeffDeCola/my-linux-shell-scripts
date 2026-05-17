@@ -3,23 +3,31 @@
 
 # Update your linux distribution
 
+# SUDO SUPPORT ---------------------------------------------------------------
+# Use sudo only if not already root. (e.g.proxmox and lxc)
+if [ "$(id -u)" -eq 0 ]; then
+    SUDO=""
+else
+    SUDO="sudo"
+fi
+
 echo " "
 echo "************************************************************************"
 echo "************************************ apt-get-update-upgrade.sh (START) *"
 echo " "
 
 echo "STEP 1 -----------------------------------------------------------------"
-echo "sudo apt-get update"
+echo "${SUDO} apt-get update"
 echo "------------------------------------------------------------------------"
 echo " "
-sudo apt-get update
+$SUDO apt-get update
 
 echo " "
 echo "STEP 2 -----------------------------------------------------------------"
-echo "sudo apt-get upgrade -y"
+echo "${SUDO} apt-get upgrade -y"
 echo "------------------------------------------------------------------------"
 echo " "
-sudo apt-get upgrade -y
+$SUDO apt-get upgrade -y
 
 echo " "
 echo "************************************** apt-get-update-upgrade.sh (END) *"

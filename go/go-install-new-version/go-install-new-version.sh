@@ -16,8 +16,7 @@ else
 fi
 
 # SUDO SUPPORT ---------------------------------------------------------------
-# Use sudo only if not already root. LXC containers run as root and often
-# do not have sudo installed; running as root we don't need it anyway.
+# Use sudo only if not already root. (e.g.proxmox and lxc)
 if [ "$(id -u)" -eq 0 ]; then
     SUDO=""
 else
