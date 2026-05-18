@@ -609,7 +609,7 @@ printf "."
 # NGINX -----------------------------------------------------------------------
 
 software[i]="nginx"
-theCommand="nginx -v 2>&1 | cut -d'/' -f2"
+theCommand="nginx -v"
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$(eval "$theCommand" 2> /dev/null)"
