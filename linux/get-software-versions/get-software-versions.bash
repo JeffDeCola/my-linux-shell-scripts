@@ -330,99 +330,6 @@ done < <(printf '%s\n' "$OUTPUT")
 ((i++))  # or i=$((i+1))
 printf "."
 
-# JEFFS my-go-tools TITLE -----------------------------------------------------
-
-software[i]="JEFFS"
-theCommand="NOTHING"
-command[i]=$theCommand
-version[i]="JEFFS"
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (decryptfile) ----------------------------------------------
-
-indent[i]="  "
-software[i]="decryptfile"
-theCommand="decryptfile -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (encryptfile) ----------------------------------------------
-
-indent[i]="  "
-software[i]="encryptfile"
-theCommand="encryptfile -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (md5-hash-file) -------------------------------------------
-
-indent[i]="  "
-software[i]="md5-hash-file"
-theCommand="md5-hash-file -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (md5-hash-file) -------------------------------------------
-
-indent[i]="  "
-software[i]="sha256-hash-file"
-theCommand="sha256-hash-file -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (markdown-check-links) ------------------------------------
-
-indent[i]="  "
-software[i]="markdown-check-links"
-theCommand="markdown-check-links -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (markdown-create-table-of-contents) -----------------------
-
-indent[i]="  "
-software[i]="markdown-create-table..."
-theCommand="markdown-create-table-of-contents -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
-# JEFFS my-go-tools (markdown-delimiter-doer) ---------------------------------
-
-indent[i]="  "
-software[i]="markdown-delimiter-doer"
-theCommand="markdown-delimiter-doer -v"
-command[i]=$theCommand
-# Only stdout, not stderr
-OUTPUT="$($theCommand 2> /dev/null)"
-version[i]=$OUTPUT
-((i++))  # or i=$((i+1))
-printf "."
-
 # KEYBASE ---------------------------------------------------------------------
 
 software[i]="KEYBASE"
@@ -586,6 +493,99 @@ do
         break
     fi
 done < <(printf '%s\n' "$OUTPUT")
+((i++))  # or i=$((i+1))
+printf "."
+
+# MY_GO_TOOLS TITLE -----------------------------------------------------
+
+software[i]="MY_GO_TOOLS"
+theCommand="NOTHING"
+command[i]=$theCommand
+version[i]="Jeff"
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (decryptfile) ----------------------------------------------
+
+indent[i]="  "
+software[i]="decryptfile"
+theCommand="decryptfile -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (encryptfile) ----------------------------------------------
+
+indent[i]="  "
+software[i]="encryptfile"
+theCommand="encryptfile -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (md5-hash-file) -------------------------------------------
+
+indent[i]="  "
+software[i]="md5-hash-file"
+theCommand="md5-hash-file -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (md5-hash-file) -------------------------------------------
+
+indent[i]="  "
+software[i]="sha256-hash-file"
+theCommand="sha256-hash-file -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (markdown-check-links) ------------------------------------
+
+indent[i]="  "
+software[i]="markdown-check-links"
+theCommand="markdown-check-links -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (markdown-create-table-of-contents) -----------------------
+
+indent[i]="  "
+software[i]="markdown-create-table..."
+theCommand="markdown-create-table-of-contents -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
+((i++))  # or i=$((i+1))
+printf "."
+
+# JEFFS my-go-tools (markdown-delimiter-doer) ---------------------------------
+
+indent[i]="  "
+software[i]="markdown-delimiter-doer"
+theCommand="markdown-delimiter-doer -v"
+command[i]=$theCommand
+# Only stdout, not stderr
+OUTPUT="$($theCommand 2> /dev/null)"
+version[i]=$OUTPUT
 ((i++))  # or i=$((i+1))
 printf "."
 
