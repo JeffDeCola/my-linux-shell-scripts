@@ -609,9 +609,8 @@ printf "."
 # NGINX -----------------------------------------------------------------------
 
 software[i]="nginx"
-theCommand="nginx -v"
+theCommand="command -v nginx >/dev/null 2>&1 && nginx -v 2>&1 || true"
 command[i]=$theCommand
-# Only stdout, not stderr
 OUTPUT="$(eval "$theCommand" 2> /dev/null)"
 version[i]="$OUTPUT"
 ((i++))
