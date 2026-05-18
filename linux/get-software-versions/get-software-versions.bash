@@ -286,7 +286,13 @@ printf "."
 # GO --------------------------------------------------------------------------
 
 software[i]="go"
-theCommand="/usr/local/go/bin/go version"
+# On arch linux go is in a different spot
+goBin="$(command -v go 2>/dev/null)"
+if [ -n "$goBin" ]; then
+    theCommand="$goBin version"
+else
+    theCommand="go version"   # will fail cleanly below, OUTPUT stays empty
+fi
 command[i]=$theCommand
 # Only stdout, not stderr
 OUTPUT="$($theCommand 2> /dev/null)"
