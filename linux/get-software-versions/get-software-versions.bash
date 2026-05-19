@@ -507,7 +507,7 @@ printf "."
 software[i]="MY_GO_TOOLS"
 theCommand="NOTHING"
 command[i]=$theCommand
-version[i]="Jeff"
+version[i]="JEFFS SOFTWARE"
 ((i++))  # or i=$((i+1))
 printf "."
 
